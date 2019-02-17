@@ -1,9 +1,6 @@
-import javax.swing.JButton;
+import javafx.scene.control.Button;
 
-import javafx.beans.Observable;
-import javafx.scene.canvas.GraphicsContext;
-
-public abstract class Box extends JButton {
+public abstract class Box extends Button {
 	int x = 0;
 	int y = 0;
 	boolean reveals = false;
