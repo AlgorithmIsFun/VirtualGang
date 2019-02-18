@@ -1,6 +1,6 @@
 import javafx.beans.InvalidationListener;
 
-public class Whitespace implements Box {
+public class Whitespace extends Box {
 
 
 

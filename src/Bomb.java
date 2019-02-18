@@ -1,7 +1,7 @@
 import javafx.beans.InvalidationListener;
 
-public class Bomb implements Box {
-
+public class Bomb extends Box {
+	Boolean boom = false;
 
 	@Override
 	public void getx(int x) {
@@ -32,7 +32,12 @@ public class Bomb implements Box {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	public Boolean explode() {
+		return boom;
+		
+	}
+	
 	@Override
 	public void flag() {
 		// TODO Auto-generated method stub
