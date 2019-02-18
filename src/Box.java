@@ -1,26 +1,16 @@
-import javafx.beans.Observable;
-import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 
-public abstract class Box implements Observable {
+public abstract class Box extends Button {
 	int x = 0;
 	int y = 0;
 	boolean reveals = false;
 	boolean flagSet = false;
-	ColorSet colorset = new ColorSet();
-	void getx(int x) {
-	}
-	void gety(int y) {
-	}
-	boolean isRevealed() {
-		return false;
-	}
-	ColorSet getColorSet() {
-		return null;
-	}
-	void reveal() {
-	}
-	void flag() {
-	}
-	void unflag() {
-	}	
+	ColorSet colorset;
+	int getx(int x) {return this.x;};
+	int gety(int y) {return this.y;};
+	boolean isRevealed() {return this.reveals;}; 
+	ColorSet getColorSet() {return this.colorset;};
+	abstract void reveal();
+	abstract void flag();
+	abstract void unflag();	
 }
