@@ -4,7 +4,7 @@ import javafx.stage.Stage;
 
 public class ColorSweeper extends Application{
 
-	View view;
+	Start_Screen view;
 	
 	
 	public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class ColorSweeper extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		// View + Controller
-		this.view = new View();
+		this.view = new Start_Screen();
 	}
 
 }
