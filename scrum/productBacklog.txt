@@ -14,13 +14,13 @@ SO THAT  : The header objects can be stored in a single unit: a panel
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 2 : 
-NAME     : 
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : 
-I WANT   : 
-SO THAT  : 
+NAME     : Implement flag, unflag and reveal methods in Box subclasses
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 1
+ESTIMATE : 1h
+AS A     : user
+I WANT   : There to be 3 distinct Boxes: Bomb, Number and Whitespace
+SO THAT  : They can be used in different ways: flagged, unflagged or revealed 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 1 : 
@@ -61,6 +61,16 @@ PRIORITY : 3
 ESTIMATE : 45 min
 ISSUE    : Grid_Panel implementation is wrong and Mine_Model has a few syntax errors, and code logic
 issues.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 2 : 
+NAME     : Implement flag, unflag and reveal methods in Box subclasses
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 1
+ESTIMATE : 1h
+AS A     : user
+I WANT   : There to be 3 distinct Boxes: Bomb, Number and Whitespace
+SO THAT  : They can be used in different ways: flagged, unflagged or revealed 
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
