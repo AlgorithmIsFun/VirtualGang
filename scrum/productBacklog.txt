@@ -1,59 +1,3 @@
-<<<<<<< HEAD
-# User Stories/Bugs (add as appropriate), modify at each Sprint Planning Meeting
-# If a USER STORY is large, break it into smaller user stories.
-
---------------------------------------------------------------------------
-TYPE     : USER STORY 1 : 
-NAME     : 
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : user
-I WANT   : 
-SO THAT  : 
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 2 : 
-NAME     : 
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : user
-I WANT   : 
-SO THAT  : 
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 3 : 
-NAME     : 
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : user
-I WANT   : 
-SO THAT  : 
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 1 : 
-NAME     :
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-ISSUE    : 
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 2 : 
-NAME     : 
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-ISSUE    :
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-
-# COMPLETED USER STORIES/BUGS BELOW ###########################################
-# OMITTED USER STORIES/BUGS BELOW   ###########################################
-
-=======
 # User Stories/Bugs (add as appropriate), modify at each Sprint Planning Meeting
 # If a USER STORY is large, break it into smaller user stories.
 
@@ -74,27 +18,18 @@ NAME     :
 OWNER    : 
 PRIORITY :
 ESTIMATE : 
-AS A     : user
-I WANT   : 
-SO THAT  : 
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 3 : 
-NAME     : 
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : user
+AS A     : 
 I WANT   : 
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 1 : 
-NAME     :
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-ISSUE    : 
+NAME     : Fix implementation of Grid_Panel and Mine_Model
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 3
+ESTIMATE : 45 min
+ISSUE    : Grid_Panel implementation is wrong and Mine_Model has a few syntax errors, and code logic
+issues.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2 : 
@@ -118,7 +53,15 @@ I WANT   : To setup the top header panel for: the flag count which tells me how 
 the smiley button, and the current bomb color box 
 SO THAT  : The header objects can be stored in a single unit: a panel
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 1 : 
+NAME     : Fix implementation of Grid_Panel and Mine_Model
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 3
+ESTIMATE : 45 min
+ISSUE    : Grid_Panel implementation is wrong and Mine_Model has a few syntax errors, and code logic
+issues.
+--------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
->>>>>>> 33251592fe27213716de19ebd7d15012f5bf72d5

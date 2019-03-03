@@ -37,8 +37,8 @@ public class Mine_Model implements Observer{
 	}
 	public void assign_bombs(int quantity) {
 		//assigns a set-amount of bombs to the board in random locations
-		int x = rand.nextInt(Box_Grid.length);;
-		int y = rand.nextInt(Box_Grid[0].length);;
+		int x = rand.nextInt(Box_Grid.length);
+		int y = rand.nextInt(Box_Grid[0].length);
 		for(int i = 0; i < quantity; i++) {
 			while (!(Box_Grid[x][y] instanceof Whitespace)) {
 				x = rand.nextInt(Box_Grid.length);
@@ -51,7 +51,10 @@ public class Mine_Model implements Observer{
 		//checks if all whitespace is clicked on and no bombs have exploded
 		for (int i = 0; i < Box_Grid.length; i++) {
 			for (int j = 0; j < Box_Grid[0].length; j++) {
-				if (Box_Grid[i][j] instanceof Bomb && ((Bomb) Box_Grid[i][j]).explode()) {
+				if (Box_Grid[i][j] instanceof Bomb && Box_Grid[i][j].isRevealed()) {
+					return false;
+				}
+				else if (!(Box_Grid[i][j] instanceof Bomb) && !(Box_Grid[i][j].isRevealed())) {
 					return false;
 				}
 			}
@@ -60,15 +63,14 @@ public class Mine_Model implements Observer{
 }
 	public void reveal(int x, int y) {
 		//reveals the box at x,y coordinates
-		if (Box_Grid[x][y] instanceof Bomb) {
-			Box_Grid[x][y].isRevealed();
+		if (!Box_Grid[x][y].isRevealed()) {
+			Box_Grid[x][y].reveal();
 		}
 	}
 	public void Flag(int x, int y) {
 		//flags the box at x,y coordinates
-		if (Box_Grid[x][y].isRevealed()) {
-			Box_Grid[x][y].flag();;
+		if (!Box_Grid[x][y].isRevealed()) {
+			Box_Grid[x][y].flag();
 		}
 	}
-	
 }

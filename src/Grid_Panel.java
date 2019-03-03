@@ -11,22 +11,19 @@ import javafx.scene.layout.GridPane;
  * 
  */
 public class Grid_Panel extends GridPane{
+
+	Box BoxGrid[][];
 	
-	private View view;
-	
-	private Button[][] btn = new Button [40][40];
-	public Grid_Panel(View view) {
-		this.view = view;
-	GridPane gridPane = new GridPane();
-	gridPane.setPadding(new Insets(10,10,10,10));
-	for(int i = 0; i < 40; i++) {
-		for(int j= 0; j<9; j++) {
-			btn[i][j] = new Button();
-			this.getChildren().addAll(this.btn);
+	public Grid_Panel(Box[][] BoxGrid) {
+		this.setPadding(new Insets(10));
+		this.BoxGrid = BoxGrid;
+		// x,y = col, row
+		for (int i = 0; i < this.BoxGrid.length; i++) {
+			for (int j = 0; i < this.BoxGrid[0].length; j++) {
+				this.add(BoxGrid[i][j], i, j);
+			}
 		}
-	
 	}
 	
-	}
 	
 }
