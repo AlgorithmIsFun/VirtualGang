@@ -1,8 +1,10 @@
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 
-public class BoxStrategy {
+public interface BoxStrategy extends EventHandler<MouseEvent>{
+	
+	public void handle(MouseEvent event);
+	public void mouseClicked(MouseEvent e);
 
-	public BoxStrategy() {
-		// TODO Auto-generated constructor stub
-	}
 
 }
