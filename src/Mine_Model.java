@@ -12,6 +12,7 @@ public class Mine_Model implements Observer{
 	Bomb bomb;
 	Random rand;
 	Map<ColorSet, Bomb> map;
+	WhiteSpaceStrategy whitespace_strategy;
 	
 	public Mine_Model() {
 		//initializes all variables and map
@@ -21,6 +22,7 @@ public class Mine_Model implements Observer{
 		bomb = new Bomb();
 		rand = new Random();
 		map = new HashMap<ColorSet, Bomb>();
+		this.whitespace_strategy = new WhiteSpaceStrategy(this);
 	}
 	@Override
 	public void update(Observable arg0, Object arg1) {
@@ -64,7 +66,11 @@ public class Mine_Model implements Observer{
 	public void reveal(int x, int y) {
 		//reveals the box at x,y coordinates
 		if (!Box_Grid[x][y].isRevealed()) {
-			Box_Grid[x][y].reveal();
+			if (Box_Grid[x][y] instanceof Whitespace) {
+				this.whitespace_strategy.reveal_Whitespace(x, y);
+			}else {
+				Box_Grid[x][y].reveal();
+			}
 		}
 	}
 	public void Flag(int x, int y) {
