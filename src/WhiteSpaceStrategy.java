@@ -15,10 +15,12 @@ public class WhiteSpaceStrategy {
 					this.model.reveal(x, y);
 					//Recursively call Whitespace on all nearby Whitespace
 					for(int i = -1; i < 2; i++) {
-						for(int j = -1; j < 2; j++) {
-							if (i != 0 && j != 0) {
-								reveal_Whitespace(x+i, y+j);
-							}
+						if (i == 0) {
+							reveal_Whitespace(x, y-1);
+							reveal_Whitespace(x, y+1);
+						}
+						else {
+							reveal_Whitespace(x+i, y);
 						}
 					}
 				}

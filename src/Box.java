@@ -12,5 +12,6 @@ public abstract class Box extends Button {
 	ColorSet getColorSet() {return this.colorset;}
 	abstract void reveal();
 	abstract void flag();
-	abstract void unflag();	
+	abstract void unflag();
+	abstract void add_bombs();
 }

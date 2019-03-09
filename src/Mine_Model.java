@@ -47,8 +47,22 @@ public class Mine_Model implements Observer{
 				y = rand.nextInt(Box_Grid[0].length);
 			}
 			Box_Grid[x][y] = new Bomb();
+			assign_numbers_to_Whitespace(x, y);
 		}
 	}
+	
+	public void assign_numbers_to_Whitespace(int x, int y) {
+		for (int i = -1; i < 2; i++) {
+			for (int j = -1; j < 2; j++) {
+				if (i != 0 && j != 0) {
+					if (Box_Grid[x][y] instanceof Whitespace) {
+						Box_Grid[x][y].add_bombs();
+					}
+				}
+			}
+		}
+	}
+	
 	public Boolean isWin() {
 		//checks if all whitespace is clicked on and no bombs have exploded
 		for (int i = 0; i < Box_Grid.length; i++) {

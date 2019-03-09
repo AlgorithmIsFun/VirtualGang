@@ -5,8 +5,9 @@ public class Whitespace extends Box {
 	
 	Image image;
 	ImageView image_view;
-	
+	int num_bombs;
 	public Whitespace () {
+		this.num_bombs = 0;
 	}
 	
 	@Override
@@ -15,6 +16,10 @@ public class Whitespace extends Box {
 		this.setDisabled(true);
 	}
 
+	public void add_bombs() {
+		this.num_bombs += 1;
+	}
+	
 	@Override
 	public void flag() {
 		// TODO Auto-generated method stub
