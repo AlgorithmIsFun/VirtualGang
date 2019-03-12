@@ -8,7 +8,6 @@ public class ColorSweeper extends Application{
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		launch(args);
 	}
 	
@@ -21,7 +20,7 @@ public class ColorSweeper extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		// View + Controller
-		this.view = new Start_Screen();
+		this.view = new Start_Screen(stage);
 	}
 
 }
