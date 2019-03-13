@@ -23,6 +23,16 @@ I WANT   : There to be 3 distinct Boxes: Bomb, Number and Whitespace
 SO THAT  : They can be used in different ways: flagged, unflagged or revealed 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 3 : 
+NAME     : Implement functions createAllBoxes, assignNumbers and countAdjacentNumbers in Mine_Model 
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 1
+ESTIMATE : 1h
+AS A     : developer
+I WANT   : to fill up the box double array with assigned whitespace, bombs and number boxes
+SO THAT  : The required box types can be set up on the grid of the game play screen.  
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 1 : 
 NAME     : Fix implementation of Grid_Panel and Mine_Model
 OWNER    : Alexei Blinov 1003273664 blinoval
@@ -71,6 +81,16 @@ ESTIMATE : 1h
 AS A     : user
 I WANT   : There to be 3 distinct Boxes: Bomb, Number and Whitespace
 SO THAT  : They can be used in different ways: flagged, unflagged or revealed 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 3 : 
+NAME     : Implement functions createAllBoxes, assignNumbers and countAdjacentNumbers in Mine_Model 
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 1
+ESTIMATE : 1h
+AS A     : developer
+I WANT   : to fill up the box double array with assigned whitespace, bombs and number boxes
+SO THAT  : The required box types can be set up on the grid of the game play screen.  
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################

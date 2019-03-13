@@ -34,4 +34,14 @@ AS A     : user
 I WANT   : There to be 3 distinct Boxes: Bomb, Number and Whitespace
 SO THAT  : They can be used in different ways: flagged, unflagged or revealed 
 --------------------------------------------------------------------------
-# Sprint 3 ? ?, 2019
+# Sprint 3 March 13, 2019
+--------------------------------------------------------------------------
+TYPE     : USER STORY 3 : 
+NAME     : Implement functions createAllBoxes, assignNumbers and countAdjacentNumbers in Mine_Model 
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 1
+ESTIMATE : 1h
+AS A     : developer
+I WANT   : to fill up the box double array with assigned whitespace, bombs and number boxes
+SO THAT  : The required box types can be set up on the grid of the game play screen.  
+--------------------------------------------------------------------------
