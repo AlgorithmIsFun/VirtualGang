@@ -26,7 +26,7 @@ public class SquareStrategy implements BoxStrategy{
           }
 		if(e.getButton() == MouseButton.SECONDARY) {
         	Box box = (Box) e.getSource();
-      		this.model.Flag(box.getx(), box.gety());
+      		this.model.flag(box.getx(), box.gety());
           }
 	}
 }

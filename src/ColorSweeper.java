@@ -11,6 +11,7 @@ public class ColorSweeper extends Application{
 		launch(args);
 	}
 	
+	
 	/**
 	 * The main entry point for this application. This method is called after the init method has returned, 
 	 * and after the system is ready for the application to begin running.
