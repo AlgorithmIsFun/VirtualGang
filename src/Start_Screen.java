@@ -19,7 +19,7 @@ public class Start_Screen {
 	 * Creates and displays the GUI elements
 	 * @param: stage: The stage the elements will appear on
 	 */
-	private void initUI(Stage stage) {
+	void initUI(Stage stage) {
 		//Create the background
 		VBox root = new VBox();
 		root.setMinSize(550, 500);
@@ -94,7 +94,7 @@ public class Start_Screen {
 	public void setConfigurations(int x, int y, int Bomb, int Colors) {
 		Mine_Model model = new Mine_Model();
 		model.createAll(x,y,Bomb,Colors);
-		View view = new View(Mine_Model);
+		View view = new View(model);
 	}
 	
 }

@@ -40,4 +40,10 @@ public class Bomb extends Box {
 		image_view.setImage(null);
 	}
 
+	@Override
+	void add_bombs() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
