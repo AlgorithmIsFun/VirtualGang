@@ -10,7 +10,8 @@ import javafx.scene.text.Text;
 public class Start_Screen {
 	
 	//Initializes the GUI Elements
-	public Start_Screen(Stage stage) {
+	public Start_Screen() {
+		Stage stage = new Stage();
 		initUI(stage);
 	}
 	
