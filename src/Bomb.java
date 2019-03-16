@@ -7,6 +7,10 @@ public class Bomb extends Box {
 	ImageView image_view;
 	
 	public Bomb (){
+		setMinWidth(buttonLength);
+		setMaxWidth(buttonLength);
+		setMinHeight(buttonLength);
+		setMaxHeight(buttonLength);
 	}
 	
 	@Override
@@ -16,10 +20,6 @@ public class Bomb extends Box {
 		image = new Image("Images/Bomb.png");
 		image_view = new ImageView(image);
 		this.setGraphic(image_view);
-		setMinWidth(image.getWidth());
-		setMaxWidth(image.getWidth());
-		setMinHeight(image.getHeight());
-		setMaxHeight(image.getHeight());
 	}
 
 	@Override
@@ -28,10 +28,6 @@ public class Bomb extends Box {
 		image = new Image("Images/Flag.png");
 		image_view = new ImageView(image);
 		this.setGraphic(image_view);
-		setMinWidth(image.getWidth());
-		setMaxWidth(image.getWidth());
-		setMinHeight(image.getHeight());
-		setMaxHeight(image.getHeight());
 	}
 
 	@Override

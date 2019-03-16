@@ -6,8 +6,13 @@ public class Whitespace extends Box {
 	Image image;
 	ImageView image_view;
 	int num_bombs;
+	
 	public Whitespace () {
 		this.num_bombs = 0;
+		setMinWidth(buttonLength);
+		setMaxWidth(buttonLength);
+		setMinHeight(buttonLength);
+		setMaxHeight(buttonLength);
 	}
 	
 	@Override
@@ -26,10 +31,6 @@ public class Whitespace extends Box {
 		image = new Image("Images/Flag.png");
 		image_view = new ImageView(image);
 		this.setGraphic(image_view);
-		setMinWidth(image.getWidth());
-		setMaxWidth(image.getWidth());
-		setMinHeight(image.getHeight());
-		setMaxHeight(image.getHeight());
 	}
 
 	@Override

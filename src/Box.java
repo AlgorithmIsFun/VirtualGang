@@ -3,6 +3,7 @@ import javafx.scene.control.Button;
 public abstract class Box extends Button {
 	int x = 0;
 	int y = 0;
+	int buttonLength = 40;
 	//boolean revealed = false;
 	boolean flagSet = false;
 	ColorSet colorset;

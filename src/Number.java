@@ -9,6 +9,10 @@ public class Number extends Box {
 	
 	public Number (int num) {
 		this.num = num;
+		setMinWidth(buttonLength);
+		setMaxWidth(buttonLength);
+		setMinHeight(buttonLength);
+		setMaxHeight(buttonLength);
 	}
 	
 	@Override
@@ -18,10 +22,6 @@ public class Number extends Box {
 		image = new Image("Images/" + String.valueOf(num) + ".png");
 		image_view = new ImageView(image);
 		this.setGraphic(image_view);
-		setMinWidth(image.getWidth());
-		setMaxWidth(image.getWidth());
-		setMinHeight(image.getHeight());
-		setMaxHeight(image.getHeight());
 	}
 
 	@Override
@@ -30,10 +30,6 @@ public class Number extends Box {
 		image = new Image("Images/Flag.png");
 		image_view = new ImageView(image);
 		this.setGraphic(image_view);
-		setMinWidth(image.getWidth());
-		setMaxWidth(image.getWidth());
-		setMinHeight(image.getHeight());
-		setMaxHeight(image.getHeight());
 	}
 
 	@Override
