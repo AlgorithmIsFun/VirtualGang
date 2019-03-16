@@ -7,12 +7,12 @@ import java.util.Random;
 public class Mine_Model implements Observer{
 	public Box box;
 	int flags;
-	Box Box_Grid[][];
-	ColorSet ColorSet;
-	Bomb bomb;
-	Random rand;
-	Map<ColorSet, Bomb> map;
-	WhiteSpaceStrategy whitespace_strategy;
+	private Box Box_Grid[][];
+	private ColorSet ColorSet;
+	private Bomb bomb;
+	private Random rand;
+	private Map<ColorSet, Bomb> map;
+	private WhiteSpaceStrategy whitespace_strategy;
 	
 	public Mine_Model() {
 		//initializes all variables and map
@@ -121,6 +121,10 @@ public class Mine_Model implements Observer{
 			}
 		}
 		return bomb_count;
+	}
+	
+	public Box[][] getBox_Grid() {
+		return Box_Grid;
 	}
 	
 	public void createAllBoxes(int width, int height, int totalbombs, int totalcolors) {
