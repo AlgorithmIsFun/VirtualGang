@@ -81,3 +81,13 @@ AS A     : developer
 I WANT   : 3 types of reveal methods for the 3 types of squares
 SO THAT  : Each type of box or square can reveal in their own way.  
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 6 : 
+NAME     : Make correct BoxStrategyFactory and 3 BoxStrategy objects 
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 
+ESTIMATE : 1h
+AS A     : developer
+I WANT   : 3 types of strategies for the 3 boxes
+SO THAT  : They can call the reveal or flag methods appropriately.   
+--------------------------------------------------------------------------

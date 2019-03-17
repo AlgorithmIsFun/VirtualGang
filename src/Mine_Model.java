@@ -3,8 +3,9 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
+import javafx.scene.input.MouseEvent;
 
-public class Mine_Model implements Observer{
+public class Mine_Model{
 	public Box box;
 	private int flags;
 	private Box Box_Grid[][];
@@ -29,7 +30,7 @@ public class Mine_Model implements Observer{
 		for (int i = 0; i < x; i++) {
 			for (int j = 0; j < y; j++) {
 				Box_Grid[i][j] = new Whitespace();
-				Box_Grid[i][j].setOnAction(BoxStrategyFactory.create("WhiteSpace"));
+				Box_Grid[i][j].addEventHandler(MouseEvent.ANY, BoxStrategyFactory.create("WhiteSpace", this));
 			}
 		}
 	}
@@ -43,7 +44,7 @@ public class Mine_Model implements Observer{
 				y = rand.nextInt(Box_Grid[0].length);
 			}
 			Box_Grid[x][y] = new Bomb();
-			Box_Grid[x][y].setOnAction(BoxStrategyFactory.create("Bomb"));
+			Box_Grid[x][y].addEventHandler(MouseEvent.ANY, BoxStrategyFactory.create("Bomb", this));
 			this.All_Bombs[i] = Box_Grid[x][y];
 		}
 	}
@@ -84,8 +85,8 @@ public class Mine_Model implements Observer{
 				if (this.Box_Grid[x][y] instanceof Whitespace) {
 					this.reveal(x, y);
 					//Recursively call Whitespace on all nearby Whitespace
-					for(int i = -1; i < 2; i++) {
-						for(int j = -1; j < 2; j++) {
+					for(int i = x-1; i <= x + 1; i++) {
+						for(int j = y-1; j <= y + 1; j++) {
 							if(i != x && j != y) {
 								revealRecursively(i,j);
 							}
@@ -112,7 +113,7 @@ public class Mine_Model implements Observer{
 				if (!(Box_Grid[i][j] instanceof Bomb)) {
 					if (countAdjacentBombs(i,j) > 0) {
 						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j));
-						Box_Grid[i][j].setOnAction(BoxStrategyFactory.create("Number"));
+						Box_Grid[i][j].addEventHandler(MouseEvent.ANY, BoxStrategyFactory.create("Number", this));
 					}
 				}
 			}
