@@ -88,6 +88,14 @@ ESTIMATE : 10 min
 ISSUE    : Mine_Model should not take any parameters. 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 6 : 
+NAME     : Fix Box constructors
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 
+ESTIMATE : 1h
+ISSUE    : the constructors were missing x and y int parameters. 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -175,6 +183,14 @@ ESTIMATE : 1h
 AS A     : developer
 I WANT   : 3 types of strategies for the 3 boxes
 SO THAT  : They can call the reveal or flag methods appropriately.   
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 6 : 
+NAME     : Fix Box constructors
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 
+ESTIMATE : 1h
+ISSUE    : the constructors were missing x and y int parameters. 
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################

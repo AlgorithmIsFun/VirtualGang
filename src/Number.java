@@ -5,9 +5,11 @@ public class Number extends Box {
 
 	Image image;
 	ImageView image_view;
-	int num;
+	private int num;
 	
-	public Number (int num) {
+	public Number (int num, int x, int y) {
+		this.x = x;
+		this.y = y;
 		this.num = num;
 		setMinWidth(buttonLength);
 		setMaxWidth(buttonLength);
@@ -18,10 +20,8 @@ public class Number extends Box {
 	@Override
 	public void reveal() {
 		// TODO Auto-generated method stub
-		this.setDisabled(true);
-		image = new Image("Images/" + String.valueOf(num) + ".png");
-		image_view = new ImageView(image);
-		this.setGraphic(image_view);
+		this.setDisable(true);
+		this.setText(String.valueOf(this.num));
 	}
 
 	@Override
@@ -29,6 +29,8 @@ public class Number extends Box {
 		// TODO Auto-generated method stub
 		image = new Image("Images/Flag.png");
 		image_view = new ImageView(image);
+		image_view.setFitHeight(buttonLength);
+		image_view.setFitWidth(buttonLength);
 		this.setGraphic(image_view);
 	}
 
@@ -36,12 +38,6 @@ public class Number extends Box {
 	public void unflag() {
 		// TODO Auto-generated method stub
 		image_view.setImage(null);
-	}
-
-	@Override
-	void add_bombs() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

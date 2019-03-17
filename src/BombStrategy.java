@@ -19,8 +19,8 @@ public class BombStrategy extends BoxStrategy {
 		// TODO Auto-generated method stub
 		if(e.getButton() == MouseButton.PRIMARY) {
 			this.model.revealAllBombs();
-          }
-		if(e.getButton() == MouseButton.SECONDARY) {
+        }
+		else if(e.getButton() == MouseButton.SECONDARY) {
         	Box bomb = (Box) e.getSource();
       		this.model.flag(bomb.getx(), bomb.gety());
           }

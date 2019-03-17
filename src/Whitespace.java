@@ -7,7 +7,9 @@ public class Whitespace extends Box {
 	ImageView image_view;
 	int num_bombs;
 	
-	public Whitespace () {
+	public Whitespace (int x, int y) {
+		this.x = x;
+		this.y = y;
 		this.num_bombs = 0;
 		setMinWidth(buttonLength);
 		setMaxWidth(buttonLength);
@@ -18,11 +20,7 @@ public class Whitespace extends Box {
 	@Override
 	public void reveal() {
 		// TODO Auto-generated method stub
-		this.setDisabled(true);
-	}
-
-	public void add_bombs() {
-		this.num_bombs += 1;
+		this.setDisable(true);
 	}
 	
 	@Override
@@ -30,6 +28,8 @@ public class Whitespace extends Box {
 		// TODO Auto-generated method stub
 		image = new Image("Images/Flag.png");
 		image_view = new ImageView(image);
+		image_view.setFitHeight(buttonLength);
+		image_view.setFitWidth(buttonLength);
 		this.setGraphic(image_view);
 	}
 

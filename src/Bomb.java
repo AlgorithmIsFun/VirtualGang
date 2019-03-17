@@ -6,7 +6,9 @@ public class Bomb extends Box {
 	Image image;
 	ImageView image_view;
 	
-	public Bomb (){
+	public Bomb (int x, int y){
+		this.x = x;
+		this.y = y;
 		setMinWidth(buttonLength);
 		setMaxWidth(buttonLength);
 		setMinHeight(buttonLength);
@@ -16,10 +18,12 @@ public class Bomb extends Box {
 	@Override
 	public void reveal() {
 		// TODO Auto-generated method stub
-		this.setDisabled(true);
 		image = new Image("Images/Bomb.png");
 		image_view = new ImageView(image);
+		image_view.setFitHeight(buttonLength);
+		image_view.setFitWidth(buttonLength);
 		this.setGraphic(image_view);
+		this.setDisable(true);
 	}
 
 	@Override
@@ -27,6 +31,8 @@ public class Bomb extends Box {
 		// TODO Auto-generated method stub
 		image = new Image("Images/Flag.png");
 		image_view = new ImageView(image);
+		image_view.setFitHeight(buttonLength);
+		image_view.setFitWidth(buttonLength);
 		this.setGraphic(image_view);
 	}
 
@@ -34,12 +40,6 @@ public class Bomb extends Box {
 	public void unflag() {
 		// TODO Auto-generated method stub
 		image_view.setImage(null);
-	}
-
-	@Override
-	void add_bombs() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

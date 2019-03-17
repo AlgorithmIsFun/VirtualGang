@@ -14,10 +14,10 @@ public class WhiteSpaceStrategy extends BoxStrategy {
 			Box White_Space = (Box) e.getSource();
 			this.model.revealRecursively(White_Space.getx(), White_Space.gety());
         }
-		if(e.getButton() == MouseButton.SECONDARY) {
+		else if(e.getButton() == MouseButton.SECONDARY) {
         	Box White_Space = (Box) e.getSource();
       		this.model.flag(White_Space.getx(), White_Space.gety());
-          }
+        }
 	}
 	
 }

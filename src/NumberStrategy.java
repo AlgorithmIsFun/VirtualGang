@@ -19,10 +19,10 @@ public class NumberStrategy extends BoxStrategy {
 			Box number = (Box) e.getSource();
 			this.model.revealRecursively(number.getx(), number.gety());
         }
-		if(e.getButton() == MouseButton.SECONDARY) {
+		else if(e.getButton() == MouseButton.SECONDARY) {
         	Box number = (Box) e.getSource();
       		this.model.flag(number.getx(), number.gety());
-          }
+        }
 	}
 
 }

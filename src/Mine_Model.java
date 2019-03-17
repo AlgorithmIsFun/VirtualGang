@@ -29,7 +29,7 @@ public class Mine_Model{
 		//auto-generates a grid
 		for (int i = 0; i < x; i++) {
 			for (int j = 0; j < y; j++) {
-				Box_Grid[i][j] = new Whitespace();
+				Box_Grid[i][j] = new Whitespace(i,j);
 				Box_Grid[i][j].addEventHandler(MouseEvent.ANY, BoxStrategyFactory.create("WhiteSpace", this));
 			}
 		}
@@ -43,7 +43,7 @@ public class Mine_Model{
 				x = rand.nextInt(Box_Grid.length);
 				y = rand.nextInt(Box_Grid[0].length);
 			}
-			Box_Grid[x][y] = new Bomb();
+			Box_Grid[x][y] = new Bomb(x,y);
 			Box_Grid[x][y].addEventHandler(MouseEvent.ANY, BoxStrategyFactory.create("Bomb", this));
 			this.All_Bombs[i] = Box_Grid[x][y];
 		}
@@ -82,18 +82,18 @@ public class Mine_Model{
 		if (x >= 0 && x < this.Box_Grid.length) {
 			if (y >= 0 && y < this.Box_Grid[0].length) {
 				//Checks if Box_Grid[x][y] is a Whitespace then reveal the Box
-				if (this.Box_Grid[x][y] instanceof Whitespace) {
+				if (this.Box_Grid[x][y] instanceof Whitespace && !(this.Box_Grid[x][y].isRevealed())) {
 					this.reveal(x, y);
 					//Recursively call Whitespace on all nearby Whitespace
 					for(int i = x-1; i <= x + 1; i++) {
 						for(int j = y-1; j <= y + 1; j++) {
-							if(i != x && j != y) {
+							if(!(i == x && j == y)) {
 								revealRecursively(i,j);
 							}
 						}
 					}
 				}
-				else if (this.Box_Grid[x][y] instanceof Number) {
+				else if (this.Box_Grid[x][y] instanceof Number && !(this.Box_Grid[x][y].isRevealed())) {
 					reveal(x,y);
 				}
 			}
@@ -112,7 +112,7 @@ public class Mine_Model{
 			for (int j = 0; j < Box_Grid[0].length; j++) {
 				if (!(Box_Grid[i][j] instanceof Bomb)) {
 					if (countAdjacentBombs(i,j) > 0) {
-						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j));
+						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j), i, j);
 						Box_Grid[i][j].addEventHandler(MouseEvent.ANY, BoxStrategyFactory.create("Number", this));
 					}
 				}
@@ -124,7 +124,7 @@ public class Mine_Model{
 		int bomb_count = 0;
 		for (int i = x-1; i <= x+1; i++) {
 			for (int j = y-1; j <= y+1; j++) {
-				if (i !=x && j != y && i<Box_Grid.length && i >= 0 && j>=0 && j < Box_Grid[0].length 
+				if (!(i == x && j == y) && i<Box_Grid.length && i >= 0 && j>=0 && j < Box_Grid[0].length 
 						&& Box_Grid[i][j] instanceof Bomb) {
 					bomb_count++;
 				}

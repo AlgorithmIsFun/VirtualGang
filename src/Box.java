@@ -1,18 +1,20 @@
 import javafx.scene.control.Button;
 
 public abstract class Box extends Button {
-	int x = 0;
-	int y = 0;
-	int buttonLength = 40;
+	protected int x = 0;
+	protected int y = 0;
+	protected int buttonLength = 40;
 	//boolean revealed = false;
-	boolean flagSet = false;
-	ColorSet colorset;
-	int getx() {return this.x;};
-	int gety() {return this.y;};
-	boolean isRevealed() {return !(this.isDisabled());} 
-	ColorSet getColorSet() {return this.colorset;}
-	abstract void reveal();
-	abstract void flag();
-	abstract void unflag();
-	abstract void add_bombs();
+	Box(){
+		super();
+	}
+	protected boolean flagSet = false;
+	protected ColorSet colorset;
+	public int getx() {return this.x;};
+	public int gety() {return this.y;};
+	public boolean isRevealed() {return !(this.isDisabled());} 
+	public ColorSet getColorSet() {return this.colorset;}
+	public abstract void reveal();
+	public abstract void flag();
+	public abstract void unflag();
 }
