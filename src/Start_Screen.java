@@ -91,7 +91,7 @@ public class Start_Screen {
 	 */
 	
 	public void setConfigurations(int x, int y, int Bomb, int Colors) {
-		Mine_Model model = new Mine_Model(x,y); 
+		Mine_Model model = new Mine_Model(); 
 		model.createAllBoxes(x,y,Bomb,Colors);
 		View view = new View(model);
 	}

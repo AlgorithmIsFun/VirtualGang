@@ -14,8 +14,7 @@ public class Mine_Model implements Observer{
 	private Map<ColorSet, Bomb> map;
 	private WhiteSpaceStrategy whitespace_strategy;
 	
-	public Mine_Model(int width, int length) {
-		Box_Grid = new Box[width][length];
+	public Mine_Model() {
 		//initializes all variables and map
 		//box = new Bomb();
 		//flags = 0;
@@ -130,6 +129,7 @@ public class Mine_Model implements Observer{
 	}
 	
 	public void createAllBoxes(int width, int height, int totalbombs, int totalcolors) {
+		this.Box_Grid = new Box[width][height];
 		createGrid(width, height);
 		assignBombs(totalbombs);
 		assignNumbers();

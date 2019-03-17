@@ -63,3 +63,11 @@ PRIORITY : 6
 ESTIMATE : 3h
 ISSUE    : Game does not start after easy or medium or hard is clicked on start screen.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 5 : 
+NAME     : Remove parameters for Mine_Model
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 6
+ESTIMATE : 3h
+ISSUE    : Mine_Model should not take any parameters. 
+--------------------------------------------------------------------------

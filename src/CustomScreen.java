@@ -69,8 +69,8 @@ public class CustomScreen{
 			//Custom Mode
 			if (isValidGame(BombInput,SizeInput,ColorInput)) {
 				Mine_Model model = new Mine_Model();
-				//model.createAll(x,y,Bombs,Colors);
-				//View view = new View(model);
+				model.createAllBoxes(x,y,Bombs,Colors);
+				View view = new View(model);
 				stage.close();
 			}
 		});
