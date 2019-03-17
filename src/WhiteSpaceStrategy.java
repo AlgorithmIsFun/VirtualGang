@@ -16,7 +16,12 @@ public class WhiteSpaceStrategy extends BoxStrategy {
         }
 		else if(e.getButton() == MouseButton.SECONDARY) {
         	Box White_Space = (Box) e.getSource();
-      		this.model.flag(White_Space.getx(), White_Space.gety());
+        	if (White_Space.flagged) {
+    			White_Space.unflag();
+    		}
+        	else {
+        		this.model.flag(White_Space.getx(), White_Space.gety());
+        	}
         }
 	}
 	

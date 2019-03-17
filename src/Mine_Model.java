@@ -66,7 +66,7 @@ public class Mine_Model{
 	
 	public void reveal(int x, int y) {
 		//reveals the box at x,y coordinates
-		if (!Box_Grid[x][y].isRevealed()) {
+		if (!(Box_Grid[x][y].isRevealed())) {
 				Box_Grid[x][y].reveal();
 		}
 	}
@@ -124,8 +124,8 @@ public class Mine_Model{
 		int bomb_count = 0;
 		for (int i = x-1; i <= x+1; i++) {
 			for (int j = y-1; j <= y+1; j++) {
-				if (!(i == x && j == y) && i<Box_Grid.length && i >= 0 && j>=0 && j < Box_Grid[0].length 
-						&& Box_Grid[i][j] instanceof Bomb) {
+				if (!(i == x && j == y) && i<this.Box_Grid.length && i >= 0 && j>=0 && 
+						j < this.Box_Grid[0].length && this.Box_Grid[i][j] instanceof Bomb) {
 					bomb_count++;
 				}
 			}
@@ -134,7 +134,7 @@ public class Mine_Model{
 	}
 	
 	public Box[][] getBox_Grid() {
-		return Box_Grid;
+		return this.Box_Grid;
 	}
 	
 	public void createAllBoxes(int width, int height, int totalbombs, int totalcolors) {

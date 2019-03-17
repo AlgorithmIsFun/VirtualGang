@@ -21,7 +21,12 @@ public class NumberStrategy extends BoxStrategy {
         }
 		else if(e.getButton() == MouseButton.SECONDARY) {
         	Box number = (Box) e.getSource();
-      		this.model.flag(number.getx(), number.gety());
+        	if (number.flagged) {
+    			number.unflag();
+    		}
+        	else {
+        		this.model.flag(number.getx(), number.gety());
+        	}
         }
 	}
 

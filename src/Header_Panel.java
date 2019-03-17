@@ -28,14 +28,14 @@ public class Header_Panel extends HBox {
 		
 		this.smiley = smiley;
 		
-		this.setPadding(new Insets(10));
+		this.setPadding(new Insets(10, 10, 10, 10));
 		
-		flag_count_box = new Rectangle(50, 50);
+		flag_count_box = new Rectangle(60, 60);
 		flag_count_text = new Text("0");
 		flag_count_stack = new StackPane();
 		flag_count_stack.getChildren().addAll(flag_count_box, flag_count_text);
 		
-		bomb_color_box = new Rectangle(50, 50);
+		bomb_color_box = new Rectangle(60, 60);
 		
 		this.getChildren().addAll(this.flag_count_stack, this.smiley, this.bomb_color_box);
 		

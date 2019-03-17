@@ -18,6 +18,9 @@ public class Bomb extends Box {
 	@Override
 	public void reveal() {
 		// TODO Auto-generated method stub
+		if (this.flagged) {
+			this.unflag();
+		}
 		image = new Image("Images/Bomb.png");
 		image_view = new ImageView(image);
 		image_view.setFitHeight(buttonLength);
@@ -34,12 +37,14 @@ public class Bomb extends Box {
 		image_view.setFitHeight(buttonLength);
 		image_view.setFitWidth(buttonLength);
 		this.setGraphic(image_view);
+		this.flagged = true;
 	}
 
 	@Override
 	public void unflag() {
 		// TODO Auto-generated method stub
 		image_view.setImage(null);
+		this.flagged = false;
 	}
 
 }

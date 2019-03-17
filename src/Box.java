@@ -4,7 +4,7 @@ public abstract class Box extends Button {
 	protected int x = 0;
 	protected int y = 0;
 	protected int buttonLength = 40;
-	//boolean revealed = false;
+	protected boolean flagged = false;
 	Box(){
 		super();
 	}
@@ -12,7 +12,7 @@ public abstract class Box extends Button {
 	protected ColorSet colorset;
 	public int getx() {return this.x;};
 	public int gety() {return this.y;};
-	public boolean isRevealed() {return !(this.isDisabled());} 
+	public boolean isRevealed() {return (this.isDisabled());} 
 	public ColorSet getColorSet() {return this.colorset;}
 	public abstract void reveal();
 	public abstract void flag();

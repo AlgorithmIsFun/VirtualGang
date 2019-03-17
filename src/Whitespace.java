@@ -20,6 +20,9 @@ public class Whitespace extends Box {
 	@Override
 	public void reveal() {
 		// TODO Auto-generated method stub
+		if (this.flagged) {
+			this.unflag();
+		}
 		this.setDisable(true);
 	}
 	
@@ -31,12 +34,14 @@ public class Whitespace extends Box {
 		image_view.setFitHeight(buttonLength);
 		image_view.setFitWidth(buttonLength);
 		this.setGraphic(image_view);
+		this.flagged = true;
 	}
 
 	@Override
 	public void unflag() {
 		// TODO Auto-generated method stub
 		image_view.setImage(null);
+		this.flagged = false;
 	}
 
 }

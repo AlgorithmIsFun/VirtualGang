@@ -99,3 +99,11 @@ PRIORITY :
 ESTIMATE : 1h
 ISSUE    : the constructors were missing x and y int parameters. 
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 7 : 
+NAME     : Fix flagging issues
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 
+ESTIMATE : 1h
+ISSUE    : Flags dont remove when a box is revealed.  
+--------------------------------------------------------------------------
