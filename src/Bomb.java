@@ -3,8 +3,8 @@ import javafx.scene.image.ImageView;
 
 public class Bomb extends Box {
 
-	Image image;
-	ImageView image_view;
+	private Image image;
+	private ImageView image_view;
 	
 	public Bomb (int x, int y){
 		this.x = x;

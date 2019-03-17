@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
  **/
 public class Smiley extends Label{
 	
-	int smileyLength = 60;
+	private int smileyLength = 60;
 	
 	/**
 	 * Creates an instance of Smiley.

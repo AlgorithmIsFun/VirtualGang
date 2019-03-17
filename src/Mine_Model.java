@@ -30,7 +30,7 @@ public class Mine_Model{
 		for (int i = 0; i < x; i++) {
 			for (int j = 0; j < y; j++) {
 				Box_Grid[i][j] = new Whitespace(i,j);
-				Box_Grid[i][j].addEventHandler(MouseEvent.ANY, BoxStrategyFactory.create("WhiteSpace", this));
+				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("WhiteSpace", this));
 			}
 		}
 	}
@@ -44,7 +44,7 @@ public class Mine_Model{
 				y = rand.nextInt(Box_Grid[0].length);
 			}
 			Box_Grid[x][y] = new Bomb(x,y);
-			Box_Grid[x][y].addEventHandler(MouseEvent.ANY, BoxStrategyFactory.create("Bomb", this));
+			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Bomb", this));
 			this.All_Bombs[i] = Box_Grid[x][y];
 		}
 	}
@@ -113,7 +113,7 @@ public class Mine_Model{
 				if (!(Box_Grid[i][j] instanceof Bomb)) {
 					if (countAdjacentBombs(i,j) > 0) {
 						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j), i, j);
-						Box_Grid[i][j].addEventHandler(MouseEvent.ANY, BoxStrategyFactory.create("Number", this));
+						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Number", this));
 					}
 				}
 			}

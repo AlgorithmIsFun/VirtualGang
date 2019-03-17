@@ -10,7 +10,7 @@ public class BoxStrategyFactory {
 
 	public static BoxStrategy create(String strategyName, Mine_Model mineModel){
 		BoxStrategy strategy = null;
-		if (strategyName== "Bomb"){
+		if (strategyName == "Bomb"){
 			strategy = (BoxStrategy) new BombStrategy(mineModel);
 		} 
 		else if (strategyName == "WhiteSpace"){

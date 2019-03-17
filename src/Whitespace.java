@@ -3,14 +3,12 @@ import javafx.scene.image.ImageView;
 
 public class Whitespace extends Box {
 	
-	Image image;
-	ImageView image_view;
-	int num_bombs;
+	private Image image;
+	private ImageView image_view;
 	
 	public Whitespace (int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.num_bombs = 0;
 		setMinWidth(buttonLength);
 		setMaxWidth(buttonLength);
 		setMinHeight(buttonLength);

@@ -3,8 +3,8 @@ import javafx.scene.image.ImageView;
 
 public class Number extends Box {
 
-	Image image;
-	ImageView image_view;
+	private Image image;
+	private ImageView image_view;
 	private int num;
 	
 	public Number (int num, int x, int y) {
