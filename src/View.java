@@ -12,9 +12,11 @@ public class View extends Application {
 	private Grid_Panel grid;
 	private Header_Panel header;
 	private Smiley smiley;
+	private Stage stage;
 	
 	@Override
-    public void start(Stage stage) {
+    public void start(Stage arg0) throws Exception {
+		return;
 	}
 	
 	/**
@@ -23,7 +25,7 @@ public class View extends Application {
 	 */
 	public View(Mine_Model model) {
 		this.model = model;
-		Stage stage = new Stage();
+		this.stage = new Stage();
 		initUI(stage);
 	}
 	
@@ -53,5 +55,6 @@ public class View extends Application {
         
         stage.setScene(scene);
         stage.setTitle("Color Sweeper");
+        stage.show();
 	}
 }

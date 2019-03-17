@@ -52,12 +52,12 @@ ISSUE    : Grid_Panel implementation is wrong and Mine_Model has a few syntax er
 issues.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 2 : 
-NAME     : 
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-ISSUE    :
+TYPE     : BUG 4 : 
+NAME     : Fix bugs preventing startup after start screen
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 6
+ESTIMATE : 3h
+ISSUE    : Game does not start after easy or medium or hard is clicked on start screen.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 
@@ -111,6 +111,14 @@ ESTIMATE : 1h
 AS A     : developer
 I WANT   : to have images to display on buttons: bombs, flags and smileys
 SO THAT  : The user can see displayed images and play the game with visuals.  
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 4 : 
+NAME     : Fix bugs preventing startup after start screen
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 6
+ESTIMATE : 3h
+ISSUE    : Game does not start after easy or medium or hard is clicked on start screen.
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################

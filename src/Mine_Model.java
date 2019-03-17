@@ -14,15 +14,17 @@ public class Mine_Model implements Observer{
 	private Map<ColorSet, Bomb> map;
 	private WhiteSpaceStrategy whitespace_strategy;
 	
-	public Mine_Model() {
+	public Mine_Model(int width, int length) {
+		Box_Grid = new Box[width][length];
 		//initializes all variables and map
-		box = new Bomb();
-		flags = 0;
-		ColorSet = new ColorSet();
-		bomb = new Bomb();
+		//box = new Bomb();
+		//flags = 0;
+		//ColorSet = new ColorSet();
+		/*bomb = new Bomb();
 		rand = new Random();
 		map = new HashMap<ColorSet, Bomb>();
-		this.whitespace_strategy = new WhiteSpaceStrategy(this);
+		this.whitespace_strategy = new WhiteSpaceStrategy(this);*/
+		rand = new Random();
 	}
 	@Override
 	public void update(Observable arg0, Object arg1) {
@@ -102,14 +104,14 @@ public class Mine_Model implements Observer{
 		if (x == 0) {
 			x_lower_bound = 0;
 		}
-		if (x == Box_Grid.length) {
-			x_upper_bound = Box_Grid.length;
+		if (x == Box_Grid.length - 1) {
+			x_upper_bound = Box_Grid.length - 1;
 		}
 		if (y == 0) {
 			y_lower_bound = 0;
 		}
-		if (y == Box_Grid[0].length) {
-			y_upper_bound = Box_Grid[0].length;
+		if (y == Box_Grid[0].length - 1) {
+			y_upper_bound = Box_Grid[0].length - 1;
 		}
 		else {
 			for (int i = x_lower_bound; i <= x_upper_bound; i++) {

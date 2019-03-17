@@ -8,10 +8,9 @@ import javafx.scene.text.Text;
  * Starter Screen built by Ritvik Bhardwaj
  */
 public class Start_Screen {
-	
+		
 	//Initializes the GUI Elements
-	public Start_Screen() {
-		Stage stage = new Stage();
+	public Start_Screen(Stage stage) {
 		initUI(stage);
 	}
 	
@@ -39,8 +38,8 @@ public class Start_Screen {
 			setConfigurations(8,8,10,3);
 			stage.close();
 		});
-		Button MediumButton = MakeButton("Medium")
-;		MediumButton.setOnAction((event) -> {
+		Button MediumButton = MakeButton("Medium");
+		MediumButton.setOnAction((event) -> {
 			//Medium Mode 40 mines 16 x 16
 				setConfigurations(16,16,40,4);
 				stage.close();
@@ -92,8 +91,8 @@ public class Start_Screen {
 	 */
 	
 	public void setConfigurations(int x, int y, int Bomb, int Colors) {
-		Mine_Model model = new Mine_Model();
-		model.createAll(x,y,Bomb,Colors);
+		Mine_Model model = new Mine_Model(x,y); 
+		model.createAllBoxes(x,y,Bomb,Colors);
 		View view = new View(model);
 	}
 	

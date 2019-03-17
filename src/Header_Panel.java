@@ -32,6 +32,7 @@ public class Header_Panel extends HBox {
 		
 		flag_count_box = new Rectangle(50, 50);
 		flag_count_text = new Text("0");
+		flag_count_stack = new StackPane();
 		flag_count_stack.getChildren().addAll(flag_count_box, flag_count_text);
 		
 		bomb_color_box = new Rectangle(50, 50);

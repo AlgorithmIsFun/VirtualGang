@@ -21,7 +21,7 @@ public class ColorSweeper extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		// View + Controller
-		this.view = new Start_Screen();
+		this.view = new Start_Screen(stage);
 	}
 
 }

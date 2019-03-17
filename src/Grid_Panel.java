@@ -19,8 +19,8 @@ public class Grid_Panel extends GridPane{
 		this.BoxGrid = BoxGrid;
 		// x,y = col, row
 		for (int i = 0; i < this.BoxGrid.length; i++) {
-			for (int j = 0; i < this.BoxGrid[0].length; j++) {
-				this.add(BoxGrid[i][j], i, j);
+			for (int j = 0; j < this.BoxGrid[0].length; j++) {
+				this.add((Button)BoxGrid[i][j], i, j);
 			}
 		}
 	}

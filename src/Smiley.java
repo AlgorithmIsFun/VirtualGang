@@ -9,6 +9,8 @@ import javafx.scene.image.ImageView;
  **/
 public class Smiley extends Label{
 	
+	int smileyLength = 60;
+	
 	/**
 	 * Creates an instance of Smiley.
 	 */
@@ -17,12 +19,14 @@ public class Smiley extends Label{
 		super();
 		Image image = new Image("Images/DefaultSmiley.png");
 		ImageView iv = new ImageView(image);
-		this.setGraphic(iv);
+		iv.setFitHeight(smileyLength);
+		iv.setFitWidth(smileyLength);
 		this.currentReaction = "Default";
-		setMinWidth(image.getWidth());
-		setMaxWidth(image.getWidth());
-		setMinHeight(image.getHeight());
-		setMaxHeight(image.getHeight());
+		setMinWidth(smileyLength);
+		setMaxWidth(smileyLength);
+		setMinHeight(smileyLength);
+		setMaxHeight(smileyLength);
+		this.setGraphic(iv);
 	}
 	
 	/**
