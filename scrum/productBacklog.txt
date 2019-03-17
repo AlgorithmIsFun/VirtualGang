@@ -43,6 +43,16 @@ I WANT   : to have images to display on buttons: bombs, flags and smileys
 SO THAT  : The user can see displayed images and play the game with visuals.  
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 5 : 
+NAME     : Make 3 reveal methods for Mine_Model
+OWNER    : Alexei Blinov 1003273664 blinoval
+PRIORITY : 5
+ESTIMATE : 1h
+AS A     : developer
+I WANT   : 3 types of reveal methods for the 3 types of squares
+SO THAT  : Each type of box or square can reveal in their own way.  
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 1 : 
 NAME     : Fix implementation of Grid_Panel and Mine_Model
 OWNER    : Alexei Blinov 1003273664 blinoval
@@ -63,8 +73,8 @@ ISSUE    : Game does not start after easy or medium or hard is clicked on start 
 TYPE     : BUG 5 : 
 NAME     : Remove parameters for Mine_Model
 OWNER    : Alexei Blinov 1003273664 blinoval
-PRIORITY : 6
-ESTIMATE : 3h
+PRIORITY : 7
+ESTIMATE : 10 min
 ISSUE    : Mine_Model should not take any parameters. 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -132,8 +142,8 @@ ISSUE    : Game does not start after easy or medium or hard is clicked on start 
 TYPE     : BUG 5 : 
 NAME     : Remove parameters for Mine_Model
 OWNER    : Alexei Blinov 1003273664 blinoval
-PRIORITY : 6
-ESTIMATE : 3h
+PRIORITY : 7
+ESTIMATE : 10min
 ISSUE    : Mine_Model should not take any parameters. 
 --------------------------------------------------------------------------
 

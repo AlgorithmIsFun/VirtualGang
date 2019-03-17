@@ -6,13 +6,12 @@ import java.util.Random;
 
 public class Mine_Model implements Observer{
 	public Box box;
-	int flags;
+	private int flags;
 	private Box Box_Grid[][];
-	private ColorSet ColorSet;
-	private Bomb bomb;
+	//private ColorSet ColorSet;
+	private Box All_Bombs[];
 	private Random rand;
-	private Map<ColorSet, Bomb> map;
-	private WhiteSpaceStrategy whitespace_strategy;
+	//private Map<ColorSet, Bomb> map;
 	
 	public Mine_Model() {
 		//initializes all variables and map
@@ -20,21 +19,17 @@ public class Mine_Model implements Observer{
 		//flags = 0;
 		//ColorSet = new ColorSet();
 		/*bomb = new Bomb();
-		rand = new Random();
 		map = new HashMap<ColorSet, Bomb>();
 		this.whitespace_strategy = new WhiteSpaceStrategy(this);*/
 		rand = new Random();
 	}
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// updates the Box_Grid for mouse events
-		
-	}
+	
 	public void createGrid(int x, int y) {
 		//auto-generates a grid
 		for (int i = 0; i < x; i++) {
 			for (int j = 0; j < y; j++) {
 				Box_Grid[i][j] = new Whitespace();
+				Box_Grid[i][j].setOnAction(BoxStrategyFactory.create("WhiteSpace"));
 			}
 		}
 	}
@@ -48,6 +43,8 @@ public class Mine_Model implements Observer{
 				y = rand.nextInt(Box_Grid[0].length);
 			}
 			Box_Grid[x][y] = new Bomb();
+			Box_Grid[x][y].setOnAction(BoxStrategyFactory.create("Bomb"));
+			this.All_Bombs[i] = Box_Grid[x][y];
 		}
 	}
 	
@@ -64,17 +61,44 @@ public class Mine_Model implements Observer{
 			}
 		}
 		return true;
-}
+	}
+	
 	public void reveal(int x, int y) {
 		//reveals the box at x,y coordinates
 		if (!Box_Grid[x][y].isRevealed()) {
-			if (Box_Grid[x][y] instanceof Whitespace) {
-				this.whitespace_strategy.reveal_Whitespace(x, y);
-			}else {
 				Box_Grid[x][y].reveal();
-			}
 		}
 	}
+	
+	public void revealAllBombs() {
+		int i;
+		for(i = 0; i < this.All_Bombs.length; i++) {
+			reveal(this.All_Bombs[i].getx(), this.All_Bombs[i].gety());
+		}
+	}
+	
+	public void revealRecursively(int x, int y) {
+		if (x >= 0 && x < this.Box_Grid.length) {
+			if (y >= 0 && y < this.Box_Grid[0].length) {
+				//Checks if Box_Grid[x][y] is a Whitespace then reveal the Box
+				if (this.Box_Grid[x][y] instanceof Whitespace) {
+					this.reveal(x, y);
+					//Recursively call Whitespace on all nearby Whitespace
+					for(int i = -1; i < 2; i++) {
+						for(int j = -1; j < 2; j++) {
+							if(i != x && j != y) {
+								revealRecursively(i,j);
+							}
+						}
+					}
+				}
+				else if (this.Box_Grid[x][y] instanceof Number) {
+					reveal(x,y);
+				}
+			}
+		}		
+	}
+	
 	public void flag(int x, int y) {
 		//flags the box at x,y coordinates
 		if (!Box_Grid[x][y].isRevealed()) {
@@ -88,6 +112,7 @@ public class Mine_Model implements Observer{
 				if (!(Box_Grid[i][j] instanceof Bomb)) {
 					if (countAdjacentBombs(i,j) > 0) {
 						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j));
+						Box_Grid[i][j].setOnAction(BoxStrategyFactory.create("Number"));
 					}
 				}
 			}
@@ -96,28 +121,11 @@ public class Mine_Model implements Observer{
 	
 	public int countAdjacentBombs(int x, int y) {
 		int bomb_count = 0;
-		int x_upper_bound = x+1;
-		int x_lower_bound = x-1;
-		int y_upper_bound = y+1;
-		int y_lower_bound = y-1;
-		if (x == 0) {
-			x_lower_bound = 0;
-		}
-		if (x == Box_Grid.length - 1) {
-			x_upper_bound = Box_Grid.length - 1;
-		}
-		if (y == 0) {
-			y_lower_bound = 0;
-		}
-		if (y == Box_Grid[0].length - 1) {
-			y_upper_bound = Box_Grid[0].length - 1;
-		}
-		else {
-			for (int i = x_lower_bound; i <= x_upper_bound; i++) {
-				for (int j = y_lower_bound; j <= y_upper_bound; j++) {
-					if (Box_Grid[i][j] instanceof Bomb && i != x && j != y) {
-						bomb_count++;
-					}
+		for (int i = x-1; i <= x+1; i++) {
+			for (int j = y-1; j <= y+1; j++) {
+				if (i !=x && j != y && i<Box_Grid.length && i >= 0 && j>=0 && j < Box_Grid[0].length 
+						&& Box_Grid[i][j] instanceof Bomb) {
+					bomb_count++;
 				}
 			}
 		}
@@ -130,6 +138,7 @@ public class Mine_Model implements Observer{
 	
 	public void createAllBoxes(int width, int height, int totalbombs, int totalcolors) {
 		this.Box_Grid = new Box[width][height];
+		this.All_Bombs = new Box[totalbombs];
 		createGrid(width, height);
 		assignBombs(totalbombs);
 		assignNumbers();
