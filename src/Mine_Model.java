@@ -1,7 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.Random;
 import javafx.scene.input.MouseEvent;
 
@@ -13,7 +11,7 @@ import javafx.scene.input.MouseEvent;
  *
  */
 
-public class Mine_Model{
+public class Mine_Model extends Observable{
 
 	public Box box;
 	private Smiley smiley;
@@ -52,10 +50,9 @@ public class Mine_Model{
 		//reveals the box at x,y coordinates
 		if (!(Box_Grid[x][y].isRevealed())) {
 			if (Box_Grid[x][y].flagged) {
-				Box_Grid[x][y].unflag();
-				this.flags = this.flags + 1;
+				this.unflag(x, y);
 			}
-				Box_Grid[x][y].reveal();
+			Box_Grid[x][y].reveal();
 		}
 	}
 	
@@ -64,6 +61,7 @@ public class Mine_Model{
 		if (!(Box_Grid[x][y].isRevealed())) {
 				Box_Grid[x][y].unflag();
 				this.flags = this.flags + 1;
+				this.notifyObservers();
 		}
 	}
 	
@@ -73,6 +71,7 @@ public class Mine_Model{
 			if (flags > 0) {
 				Box_Grid[x][y].flag();
 				this.flags = flags - 1;
+				this.notifyObservers();
 			}
 		}
 	}
@@ -228,6 +227,18 @@ public class Mine_Model{
 	
 	public Smiley getSmiley() {
 		return this.smiley;
+	}
+	
+	public void setCurrentColorSet(int x, int y) {
+		this.currColorset = this.Box_Grid[x][y].getColorSet();
+	}
+	
+	public ColorSet getCurrentColorSet() {
+		return this.currColorset;
+	}
+	
+	public int getFlagCount() {
+		return this.flags;
 	}
 	
 }

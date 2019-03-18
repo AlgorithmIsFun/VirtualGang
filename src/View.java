@@ -36,7 +36,8 @@ public class View extends Application {
 	private void initUI(Stage stage) {
 		
 		this.smiley = this.model.getSmiley();
-		this.header = new Header_Panel(this.smiley);
+		this.header = new Header_Panel(this.smiley, this.model);
+		this.model.addObserver(this.header);
 		this.grid = new Grid_Panel(this.model.getBox_Grid());
 		
 		BorderPane window = new BorderPane();
