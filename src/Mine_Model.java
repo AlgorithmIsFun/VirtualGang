@@ -6,12 +6,14 @@ import java.util.Random;
 import javafx.scene.input.MouseEvent;
 
 public class Mine_Model{
+	End_Screen view;
 	public Box box;
 	private int flags;
 	private Box Box_Grid[][];
 	//private ColorSet ColorSet;
 	private Box All_Bombs[];
 	private Random rand;
+	
 	//private Map<ColorSet, Bomb> map;
 	
 	public Mine_Model() {
@@ -54,14 +56,18 @@ public class Mine_Model{
 		for (int i = 0; i < Box_Grid.length; i++) {
 			for (int j = 0; j < Box_Grid[0].length; j++) {
 				if (Box_Grid[i][j] instanceof Bomb && Box_Grid[i][j].isRevealed()) {
+					this.view = new End_Screen();
 					return false;
 				}
 				else if (!(Box_Grid[i][j] instanceof Bomb) && !(Box_Grid[i][j].isRevealed())) {
+					this.view = new End_Screen();
 					return false;
 				}
 			}
 		}
+		this.view = new End_Screen();
 		return true;
+		
 	}
 	
 	public void reveal(int x, int y) {

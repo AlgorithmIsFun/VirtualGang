@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 public class ColorSweeper extends Application{
 
 	Start_Screen view;
-	
+	//End_Screen view;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -22,6 +22,7 @@ public class ColorSweeper extends Application{
 	public void start(Stage stage) throws Exception {
 		// View + Controller
 		this.view = new Start_Screen(stage);
+		//this.view = new End_Screen();
 	}
 
 }

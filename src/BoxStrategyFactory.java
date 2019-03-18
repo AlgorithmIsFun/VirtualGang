@@ -1,6 +1,6 @@
 /**
  * 
- * @author Alexei
+ * @author Asmah Al-arryan
  *
  * A Factory to create different Event Handlers (Strategies) for the 3 types of Button Boxes (Number, Bomb
  * and Whitespace)
