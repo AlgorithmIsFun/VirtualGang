@@ -1,5 +1,6 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 public class Number extends Box {
 
@@ -23,9 +24,8 @@ public class Number extends Box {
 	public void reveal() {
 		// TODO Auto-generated method stub
 		this.setDisable(true);
+		this.setStyle("-fx-text-fill: "+this.getColorSet().getHex()+";" + "-fx-opacity: 1;");
 		this.setText(String.valueOf(this.num));
-		this.getStyleClass().add("number");
-		this.setStyle("-fx-text-fill: "+this.getColorSet().getHex()+"; ");
 	}
 
 	@Override

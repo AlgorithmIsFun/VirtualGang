@@ -29,7 +29,7 @@ public class Bomb extends Box {
 		image_view.setFitHeight(buttonLength);
 		image_view.setFitWidth(buttonLength);
 		this.setGraphic(image_view);
-		this.setStyle("-fx-background-color: " + this.colorset.getHex() + "; ");
+		this.setStyle("-fx-background-color: " + this.colorset.getHex() + "; "+ "-fx-opacity: 1;");
 		this.setDisable(true);
 	}
 
