@@ -107,3 +107,31 @@ PRIORITY :
 ESTIMATE : 1h
 ISSUE    : Flags dont remove when a box is revealed.  
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 7 : 
+NAME     : Mine_Model
+OWNER    : Abdullah Khan 1003962447 khanab42
+PRIORITY : 
+ESTIMATE : 2h
+AS A     : developer
+I WANT   : Model class to store all game data
+SO THAT  : TCan update the data in the class through several functions.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 8 : 
+NAME     : Strategies
+OWNER    : Abdullah Khan 1003962447 khanab42
+PRIORITY : 
+ESTIMATE : 2h
+AS A     : developer
+I WANT   : 3 strategies for the different type of boxes
+SO THAT  : They can call the reveal or flag methods appropriately.   
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 8 : 
+NAME     : Fix Smiley issues
+OWNER    : Abdullah Khan 1003962447 khanab42
+PRIORITY : 
+ESTIMATE : 1h
+ISSUE    : Smiley Picture Updates based on mouse commands 
+--------------------------------------------------------------------------

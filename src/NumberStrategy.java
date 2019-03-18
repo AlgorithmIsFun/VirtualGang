@@ -3,7 +3,7 @@ import javafx.scene.input.MouseEvent;
 
 /**
  * 
- * @author Alexei
+ * @author Abdullah Alexei
  *
  */
 public class NumberStrategy extends BoxStrategy {
