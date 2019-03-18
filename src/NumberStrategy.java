@@ -22,7 +22,7 @@ public class NumberStrategy extends BoxStrategy {
 		else if(e.getButton() == MouseButton.SECONDARY) {
         	Box number = (Box) e.getSource();
         	if (number.flagged) {
-    			number.unflag();
+    			this.model.unflag(number.getx(), number.gety());
     		}
         	else {
         		this.model.flag(number.getx(), number.gety());

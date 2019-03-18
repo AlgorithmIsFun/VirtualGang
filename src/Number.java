@@ -7,7 +7,8 @@ public class Number extends Box {
 	private ImageView image_view;
 	private int num;
 	
-	public Number (int num, int x, int y) {
+	public Number (int num, int x, int y, ColorSet colors) {
+		super();
 		this.x = x;
 		this.y = y;
 		this.num = num;
@@ -20,9 +21,6 @@ public class Number extends Box {
 	@Override
 	public void reveal() {
 		// TODO Auto-generated method stub
-		if (this.flagged) {
-			this.unflag();
-		}
 		this.setDisable(true);
 		this.setText(String.valueOf(this.num));
 	}

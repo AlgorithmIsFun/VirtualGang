@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 
 public class ColorSet {
+	
+	/**
+	 * 
+	 * @author Ali Ibrahim
+	 *Responsible for storing the information for different colors needed
+	 */
 
 	private int hex[] =new int[3];
 	private ArrayList<Bomb> bombs = new ArrayList<Bomb>();
@@ -8,12 +14,16 @@ public class ColorSet {
 	public ColorSet (int r, int g, int b) {
 		this.hex[0] = r;
 		this.hex[1] = g;
-		this.hex[1] = b;
+		this.hex[2] = b;
 	}
 	
-	public int[] getHex() {
-		return hex ;
+	public String getHex() {
+		return String.format("#%02x%02x%02x",
+			    (int)this.hex[0],
+			   (int)this.hex[1],
+			    (int)this.hex[2]);
 	}
+	
 	
 	public void addBomb(Bomb bomb) {
 		bombs.add(bomb);

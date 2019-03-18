@@ -75,6 +75,13 @@ public class Mine_Model{
 		}
 	}
 	
+	public void unflag(int x, int y) {
+		//reveals the box at x,y coordinates
+		if (!(Box_Grid[x][y].isRevealed())) {
+				Box_Grid[x][y].unflag();
+		}
+	}
+	
 	public void revealAllBombs() {
 		int i;
 		for(i = 0; i < this.All_Bombs.length; i++) {

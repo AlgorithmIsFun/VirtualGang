@@ -1,5 +1,9 @@
 import javafx.scene.control.Button;
-
+/**
+ * 
+ * @author Ritvik Bhardwaj
+ *The abstract 	class for Bomb, Number and Whitespace
+ */
 public abstract class Box extends Button {
 	protected int x = 0;
 	protected int y = 0;

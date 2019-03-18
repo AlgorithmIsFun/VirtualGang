@@ -7,6 +7,7 @@ public class Whitespace extends Box {
 	private ImageView image_view;
 	
 	public Whitespace (int x, int y) {
+		super();
 		this.x = x;
 		this.y = y;
 		setMinWidth(buttonLength);
@@ -18,9 +19,6 @@ public class Whitespace extends Box {
 	@Override
 	public void reveal() {
 		// TODO Auto-generated method stub
-		if (this.flagged) {
-			this.unflag();
-		}
 		this.setDisable(true);
 	}
 	

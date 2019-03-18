@@ -1,32 +1,35 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * @author Ritvik Bhardwaj
+ * Class responsible for storing the attributes a Bomb has.
+ */
 public class Bomb extends Box {
 
 	private Image image;
 	private ImageView image_view;
 	
-	public Bomb (int x, int y){
+	public Bomb (int x, int y, ColorSet colors){
+		super();
 		this.x = x;
 		this.y = y;
 		setMinWidth(buttonLength);
 		setMaxWidth(buttonLength);
 		setMinHeight(buttonLength);
 		setMaxHeight(buttonLength);
+		this.colorset = colors;
 	}
 	
 	@Override
 	public void reveal() {
 		// TODO Auto-generated method stub
-		if (this.flagged) {
-			this.unflag();
-		}
 		image = new Image("Images/Bomb.png");
 		image_view = new ImageView(image);
 		image_view.setFitHeight(buttonLength);
 		image_view.setFitWidth(buttonLength);
 		this.setGraphic(image_view);
-		this.setDisable(true);
+		this.setStyle("-fx-background-color: " + this.colorset.getHex() + "; ");
 	}
 
 	@Override

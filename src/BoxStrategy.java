@@ -1,6 +1,6 @@
 /**
  * 
- * @author Alexei
+ * @author Abdullah
  *
  * A an abstract class to be inherited by 3 types of strategies.
  *
@@ -25,15 +25,5 @@ public abstract class BoxStrategy implements EventHandler<MouseEvent>{
 		}
 	}
 	
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getButton() == MouseButton.PRIMARY) {
-			Box box = (Box) e.getSource();
-			this.model.reveal(box.getx(), box.gety());
-          }
-		if(e.getButton() == MouseButton.SECONDARY) {
-        	Box box = (Box) e.getSource();
-      		this.model.flag(box.getx(), box.gety());
-          }
-	}
+	public abstract void mouseClicked(MouseEvent e);
 }
