@@ -135,3 +135,11 @@ PRIORITY :
 ESTIMATE : 1h
 ISSUE    : Smiley Picture Updates based on mouse commands 
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 8 : 
+NAME     : Fix End Game issues
+OWNER    : Abdullah Khan 1003962447 khanab42
+PRIORITY : 
+ESTIMATE : 1h
+ISSUE    : Disable Mouse Events after an end game condition occurs
+--------------------------------------------------------------------------

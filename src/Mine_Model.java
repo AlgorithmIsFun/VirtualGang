@@ -17,6 +17,7 @@ public class Mine_Model{
 
 	public Box box;
 	public Smiley smiley;
+	public boolean enable;
 	private int flags;
 	private Box Box_Grid[][];
 	private ColorSet currColorset;
@@ -31,6 +32,7 @@ public class Mine_Model{
 		//initializes all variables and map
 		flags = 0;
 		currColorset = null;
+		enable = true;
 		rand = new Random();
 	}
 	
@@ -134,6 +136,7 @@ public class Mine_Model{
 				}
 			}
 		}
+		enable = false;
 		this.smiley.updateImage("Win");
 		return true;
 		
@@ -143,6 +146,7 @@ public class Mine_Model{
 	public void revealAllBombs() {
 		int i;
 		this.smiley.updateImage("Game_Over");
+		enable = false;
 		for(i = 0; i < this.All_Bombs.length; i++) {
 			reveal(this.All_Bombs[i].getx(), this.All_Bombs[i].gety());
 		}

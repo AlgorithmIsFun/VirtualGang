@@ -20,14 +20,16 @@ public abstract class BoxStrategy implements EventHandler<MouseEvent>{
 	@Override
 	public void handle(MouseEvent event) {
 		// TODO Auto-generated method stub
-		if (event.getEventType() == MouseEvent.MOUSE_CLICKED) {
-			this.mouseClicked(event);
-		}
-		if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
-			this.mousePressed(event);
-		}
-		if (event.getEventType() == MouseEvent.MOUSE_RELEASED) {
-			this.mouseReleased(event);
+		if (this.model.enable) {
+			if (event.getEventType() == MouseEvent.MOUSE_CLICKED) {
+				this.mouseClicked(event);
+			}
+			if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
+				this.mousePressed(event);
+			}
+			if (event.getEventType() == MouseEvent.MOUSE_RELEASED) {
+				this.mouseReleased(event);
+			}
 		}
 	}
 	public void mousePressed(MouseEvent e) {
