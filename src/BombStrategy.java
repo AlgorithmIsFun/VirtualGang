@@ -18,6 +18,7 @@ public class BombStrategy extends BoxStrategy {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		this.model.getSmiley().updateImage("Default");
 		if(e.getButton() == MouseButton.PRIMARY) {
 			this.model.revealAllBombs();
         }

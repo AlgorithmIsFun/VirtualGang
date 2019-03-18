@@ -34,8 +34,8 @@ public class View extends Application {
 	 * @param stage
 	 */
 	private void initUI(Stage stage) {
-		this.smiley = this.model.smiley;
 		
+		this.smiley = this.model.getSmiley();
 		this.header = new Header_Panel(this.smiley);
 		this.grid = new Grid_Panel(this.model.getBox_Grid());
 		

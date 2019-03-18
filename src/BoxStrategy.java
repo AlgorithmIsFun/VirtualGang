@@ -33,27 +33,16 @@ public abstract class BoxStrategy implements EventHandler<MouseEvent>{
 		}
 	}
 	public void mousePressed(MouseEvent e) {
-		if(e.getButton() == MouseButton.PRIMARY) {
-			this.model.smiley.updateImage("Surprised");
+		if(e.getButton() == MouseButton.PRIMARY || e.getButton() == MouseButton.SECONDARY) {
+			this.model.getSmiley().updateImage("Surprised");
         }
 	}
 	
 	public void mouseReleased(MouseEvent e) {
-		if(e.getButton() == MouseButton.PRIMARY) {
-			this.model.smiley.updateImage("Default");
+		if(e.getButton() == MouseButton.PRIMARY || e.getButton() == MouseButton.SECONDARY) {
+			this.model.getSmiley().updateImage("Default");
         }
 	}
 	
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getButton() == MouseButton.PRIMARY) {
-			this.model.smiley.updateImage("Default");
-			Box box = (Box) e.getSource();
-			this.model.reveal(box.getx(), box.gety());
-          }
-		if(e.getButton() == MouseButton.SECONDARY) {
-        	Box box = (Box) e.getSource();
-      		this.model.flag(box.getx(), box.gety());
-          }
-	}
+	public abstract void mouseClicked(MouseEvent e);
 }

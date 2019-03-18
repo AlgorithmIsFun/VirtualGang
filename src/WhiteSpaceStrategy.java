@@ -16,6 +16,7 @@ public class WhiteSpaceStrategy extends BoxStrategy {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		this.model.getSmiley().updateImage("Default");
 		if(e.getButton() == MouseButton.SECONDARY) {
         	Box White_Space = (Box) e.getSource();
         	if (White_Space.flagged) {

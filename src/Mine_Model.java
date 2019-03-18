@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 public class Mine_Model{
 
 	public Box box;
-	public Smiley smiley;
+	private Smiley smiley;
 	public boolean enable;
 	private int flags;
 	private Box Box_Grid[][];
@@ -179,9 +179,9 @@ public class Mine_Model{
 		for (int i = 0; i < Box_Grid.length; i++) {
 			for (int j = 0; j < Box_Grid[0].length; j++) {
 				if (!(Box_Grid[i][j] instanceof Bomb) ) {
-					System.out.println(i);
-					System.out.println(j);
-					System.out.println("Total:" + countAdjacentBombs(i,j));
+					//System.out.println(i);
+					//System.out.println(j);
+					//System.out.println("Total:" + countAdjacentBombs(i,j));
 					if (countAdjacentBombs(i,j) > 0) {
 						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j), i, j,getAverageColor(i,j));
 						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Number", this));
@@ -210,8 +210,6 @@ public class Mine_Model{
 			}
 		}
 		
-		
-		
 		return new ColorSet(averageR / totalBombs,averageG / totalBombs,averageB / totalBombs);
 	}
 	
@@ -228,5 +226,8 @@ public class Mine_Model{
 		return bomb_count;
 	}
 	
-
+	public Smiley getSmiley() {
+		return this.smiley;
+	}
+	
 }
