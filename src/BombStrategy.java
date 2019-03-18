@@ -3,7 +3,7 @@ import javafx.scene.input.MouseEvent;
 
 /**
  * 
- * @author Alexei
+ * @author Abdullah Alexei
  *
  * A Bomb Strategy to call revealAllBombs or to flag the Bomb.
  *
@@ -13,6 +13,7 @@ public class BombStrategy extends BoxStrategy {
 	BombStrategy(Mine_Model model){
 		super(model);
 	}
+	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {

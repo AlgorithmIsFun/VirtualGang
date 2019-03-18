@@ -5,8 +5,17 @@ import java.util.Observer;
 import java.util.Random;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * 
+ * @author Abdullah Alexei
+ *
+ * A Mine Model to store and manipulate all game data
+ *
+ */
+
 public class Mine_Model{
 	public Box box;
+	public Smiley smiley;
 	private int flags;
 	private Box Box_Grid[][];
 	//private ColorSet ColorSet;
@@ -31,6 +40,8 @@ public class Mine_Model{
 			for (int j = 0; j < y; j++) {
 				Box_Grid[i][j] = new Whitespace(i,j);
 				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("WhiteSpace", this));
+				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_PRESSED, BoxStrategyFactory.create("WhiteSpace", this));
+				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_RELEASED, BoxStrategyFactory.create("WhiteSpace", this));
 			}
 		}
 	}
@@ -45,6 +56,8 @@ public class Mine_Model{
 			}
 			Box_Grid[x][y] = new Bomb(x,y);
 			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Bomb", this));
+			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_PRESSED, BoxStrategyFactory.create("Bomb", this));
+			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_RELEASED, BoxStrategyFactory.create("Bomb", this));
 			this.All_Bombs[i] = Box_Grid[x][y];
 		}
 	}
@@ -61,6 +74,7 @@ public class Mine_Model{
 				}
 			}
 		}
+		this.smiley.updateImage("Win");
 		return true;
 	}
 	
@@ -73,6 +87,7 @@ public class Mine_Model{
 	
 	public void revealAllBombs() {
 		int i;
+		this.smiley.updateImage("Game_Over");
 		for(i = 0; i < this.All_Bombs.length; i++) {
 			reveal(this.All_Bombs[i].getx(), this.All_Bombs[i].gety());
 		}
@@ -114,6 +129,8 @@ public class Mine_Model{
 					if (countAdjacentBombs(i,j) > 0) {
 						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j), i, j);
 						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Number", this));
+						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_PRESSED, BoxStrategyFactory.create("Number", this));
+						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_RELEASED, BoxStrategyFactory.create("Number", this));
 					}
 				}
 			}
@@ -140,6 +157,7 @@ public class Mine_Model{
 	public void createAllBoxes(int width, int height, int totalbombs, int totalcolors) {
 		this.Box_Grid = new Box[width][height];
 		this.All_Bombs = new Box[totalbombs];
+		this.smiley = new Smiley();
 		createGrid(width, height);
 		assignBombs(totalbombs);
 		assignNumbers();

@@ -1,6 +1,12 @@
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * 
+ * @author Abdullah
+ *
+ */
+
 public class WhiteSpaceStrategy extends BoxStrategy {
 	
 	WhiteSpaceStrategy(Mine_Model model){

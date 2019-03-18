@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 /**
  * A class responsible for changing the Smiley Emoticon in Header Panel.
- * @author Ritvik Bhardwaj
+ * @author Ritvik Bhardwaj Abdullah
  *
  **/
 public class Smiley extends Label{
@@ -38,8 +38,14 @@ public class Smiley extends Label{
 	public void updateImage(String reaction) {
 		Image image = new Image("Images/" + reaction + "Smiley.png");
 		ImageView iv = new ImageView(image);
+		iv.setFitHeight(smileyLength);
+		iv.setFitWidth(smileyLength);
+		this.currentReaction = reaction;
+		setMinWidth(smileyLength);
+		setMaxWidth(smileyLength);
+		setMinHeight(smileyLength);
+		setMaxHeight(smileyLength);
 		this.setGraphic(iv);
-		
 	}
 	/**
 	 * Return the current reaction of the Smiley.
