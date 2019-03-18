@@ -16,6 +16,7 @@ public class Number extends Box {
 		setMaxWidth(buttonLength);
 		setMinHeight(buttonLength);
 		setMaxHeight(buttonLength);
+		this.colorset = colors;
 	}
 	
 	@Override
@@ -23,6 +24,8 @@ public class Number extends Box {
 		// TODO Auto-generated method stub
 		this.setDisable(true);
 		this.setText(String.valueOf(this.num));
+		this.getStyleClass().add("number");
+		this.setStyle("-fx-text-fill: "+this.getColorSet().getHex()+"; ");
 	}
 
 	@Override
@@ -39,7 +42,7 @@ public class Number extends Box {
 	@Override
 	public void unflag() {
 		// TODO Auto-generated method stub
-		image_view.setImage(null);
+		this.setGraphic(null);
 		this.flagged = false;
 	}
 

@@ -17,7 +17,7 @@ public class NumberStrategy extends BoxStrategy {
 		// TODO Auto-generated method stub
 		if(e.getButton() == MouseButton.PRIMARY) {
 			Box number = (Box) e.getSource();
-			this.model.revealRecursively(number.getx(), number.gety());
+			this.model.reveal(number.getx(), number.gety());
         }
 		else if(e.getButton() == MouseButton.SECONDARY) {
         	Box number = (Box) e.getSource();

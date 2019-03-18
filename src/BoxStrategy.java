@@ -6,7 +6,6 @@
  *
  */
 import javafx.event.EventHandler;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 public abstract class BoxStrategy implements EventHandler<MouseEvent>{
@@ -19,8 +18,10 @@ public abstract class BoxStrategy implements EventHandler<MouseEvent>{
 	
 	@Override
 	public void handle(MouseEvent event) {
+		System.out.println(event.getEventType());
+		System.out.println(this.getClass());
 		// TODO Auto-generated method stub
-		if (event.getEventType() == MouseEvent.MOUSE_CLICKED) {
+		if (event.getEventType() == MouseEvent.MOUSE_CLICKED || event.getEventType() == MouseEvent.MOUSE_RELEASED) {
 			this.mouseClicked(event);
 		}
 	}

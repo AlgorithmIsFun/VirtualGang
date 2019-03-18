@@ -6,24 +6,65 @@ import java.util.Random;
 import javafx.scene.input.MouseEvent;
 
 public class Mine_Model{
-	public Box box;
 	private int flags;
 	private Box Box_Grid[][];
-	//private ColorSet ColorSet;
+	private ColorSet currColorset;
 	private Box All_Bombs[];
 	private Random rand;
+	private ColorSet allColorsSets[];
+	private int totalColors;
 	
 	//private Map<ColorSet, Bomb> map;
 	
 	public Mine_Model() {
 		//initializes all variables and map
-		//box = new Bomb();
-		//flags = 0;
-		//ColorSet = new ColorSet();
-		/*bomb = new Bomb();
-		map = new HashMap<ColorSet, Bomb>();
-		this.whitespace_strategy = new WhiteSpaceStrategy(this);*/
+		flags = 0;
+		currColorset = null;
 		rand = new Random();
+	}
+	
+	public void createAllBoxes(int width, int height, int totalbombs, int totalcolors) {
+		this.Box_Grid = new Box[width][height];
+		this.All_Bombs = new Box[totalbombs];
+		this.allColorsSets = generateColorsets(totalcolors);
+		this.totalColors = totalcolors;
+		createGrid(width, height);
+		assignBombs(totalbombs);
+		assignNumbers();
+		this.flags = totalbombs;
+	}
+	
+	public void reveal(int x, int y) {
+		//reveals the box at x,y coordinates
+		if (!(Box_Grid[x][y].isRevealed())) {
+			if (Box_Grid[x][y].flagged) {
+				Box_Grid[x][y].unflag();
+				this.flags = this.flags + 1;
+			}
+				Box_Grid[x][y].reveal();
+		}
+	}
+	
+	public void unflag(int x, int y) {
+		//reveals the box at x,y coordinates
+		if (!(Box_Grid[x][y].isRevealed())) {
+				Box_Grid[x][y].unflag();
+				this.flags = this.flags + 1;
+		}
+	}
+	
+	public void flag(int x, int y) {
+		//flags the box at x,y coordinates
+		if (!Box_Grid[x][y].isRevealed()) {
+			if (flags > 0) {
+				Box_Grid[x][y].flag();
+				this.flags = flags - 1;
+			}
+		}
+	}
+	
+	public Box[][] getBox_Grid() {
+		return this.Box_Grid;
 	}
 	
 	public void createGrid(int x, int y) {
@@ -35,6 +76,19 @@ public class Mine_Model{
 			}
 		}
 	}
+	private ColorSet[] generateColorsets(int colors) {
+		ColorSet[] colorList = new ColorSet[colors];
+		int randomR = rand.nextInt(255);
+		int randomG = rand.nextInt(255);
+		int randomB = rand.nextInt(255);
+		int interval = 255 / (colors + 1);
+		for (int i =0; i < colors; i ++) {
+			colorList[i] = new ColorSet((randomR + (i+1)*interval) % 256,(randomG + (i+1)*interval)%256,(randomB + (i+1)*interval) % 256);
+		}
+		
+		return colorList;
+		
+	}
 	public void assignBombs(int quantity) {
 		//assigns a set-amount of bombs to the board in random locations
 		int x = rand.nextInt(Box_Grid.length);
@@ -44,7 +98,7 @@ public class Mine_Model{
 				x = rand.nextInt(Box_Grid.length);
 				y = rand.nextInt(Box_Grid[0].length);
 			}
-			Box_Grid[x][y] = new Bomb(x,y);
+			Box_Grid[x][y] = new Bomb(x,y,this.allColorsSets[i % this.totalColors]);
 			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Bomb", this));
 			this.All_Bombs[i] = Box_Grid[x][y];
 		}
@@ -68,23 +122,9 @@ public class Mine_Model{
 		
 	}
 	
-	public void reveal(int x, int y) {
-		//reveals the box at x,y coordinates
-		if (!(Box_Grid[x][y].isRevealed())) {
-				Box_Grid[x][y].reveal();
-		}
-	}
-	
-	public void unflag(int x, int y) {
-		//reveals the box at x,y coordinates
-		if (!(Box_Grid[x][y].isRevealed())) {
-				Box_Grid[x][y].unflag();
-		}
-	}
 	
 	public void revealAllBombs() {
-		int i;
-		for(i = 0; i < this.All_Bombs.length; i++) {
+		for(int i = 0; i < this.All_Bombs.length; i++) {
 			reveal(this.All_Bombs[i].getx(), this.All_Bombs[i].gety());
 		}
 	}
@@ -111,24 +151,43 @@ public class Mine_Model{
 		}		
 	}
 	
-	public void flag(int x, int y) {
-		//flags the box at x,y coordinates
-		if (!Box_Grid[x][y].isRevealed()) {
-			Box_Grid[x][y].flag();
-		}
-	}
 	
 	public void assignNumbers() {
 		for (int i = 0; i < Box_Grid.length; i++) {
 			for (int j = 0; j < Box_Grid[0].length; j++) {
-				if (!(Box_Grid[i][j] instanceof Bomb)) {
+				if (!(Box_Grid[i][j] instanceof Bomb) ) {
+					System.out.println(i);
+					System.out.println(j);
+					System.out.println("Total:" + countAdjacentBombs(i,j));
 					if (countAdjacentBombs(i,j) > 0) {
-						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j), i, j);
+						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j), i, j,getAverageColor(i,j));
 						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Number", this));
 					}
 				}
 			}
 		}
+	}
+	
+	public ColorSet getAverageColor(int x, int y) {
+		int averageR = 0;
+		int averageG = 0;
+		int averageB = 0;
+		int totalBombs = 0;
+		for (int i = x-1; i <= x+1; i++) {
+			for (int j = y-1; j <= y+1; j++) {
+				if (!(i == x && j == y) && i<this.Box_Grid.length && i >= 0 && j>=0 && 
+						j < this.Box_Grid[0].length && this.Box_Grid[i][j] instanceof Bomb) {
+					averageR = averageR + this.Box_Grid[i][j].getColorSet().getR();
+					averageG = averageG + this.Box_Grid[i][j].getColorSet().getG();
+					averageB = averageB + this.Box_Grid[i][j].getColorSet().getB();
+					totalBombs++;
+				}
+			}
+		}
+		
+		
+		
+		return new ColorSet(averageR / totalBombs,averageG / totalBombs,averageB / totalBombs);
 	}
 	
 	public int countAdjacentBombs(int x, int y) {
@@ -144,15 +203,4 @@ public class Mine_Model{
 		return bomb_count;
 	}
 	
-	public Box[][] getBox_Grid() {
-		return this.Box_Grid;
-	}
-	
-	public void createAllBoxes(int width, int height, int totalbombs, int totalcolors) {
-		this.Box_Grid = new Box[width][height];
-		this.All_Bombs = new Box[totalbombs];
-		createGrid(width, height);
-		assignBombs(totalbombs);
-		assignNumbers();
-	}
 }

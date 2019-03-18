@@ -41,3 +41,7 @@
 #Configurations {
     -fx-fill: #FFFFFF;
 }
+
+.number:disabled, .number:disabled > * {
+    -fx-opacity: 1.0 ;
+  }

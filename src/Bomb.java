@@ -30,6 +30,7 @@ public class Bomb extends Box {
 		image_view.setFitWidth(buttonLength);
 		this.setGraphic(image_view);
 		this.setStyle("-fx-background-color: " + this.colorset.getHex() + "; ");
+		this.setDisable(true);
 	}
 
 	@Override
