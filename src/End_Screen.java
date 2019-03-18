@@ -35,7 +35,13 @@ public class End_Screen {
 		this.view = new Start_Screen(stage);
 		});
 		
-		root.getChildren().addAll(Title,Btn);
+		Button Btn2 = MakeButton("Exit");
+		Btn2.setOnAction((event) -> {
+		stage.close();
+		});
+		
+		
+		root.getChildren().addAll(Title,Btn, Btn2);
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add("StartScreen.css");
 		stage.setScene(scene);
