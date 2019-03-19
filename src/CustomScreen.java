@@ -161,6 +161,10 @@ public class CustomScreen{
 			createDialogue("Color sets must be a number");
 			return false;
 		}
+		if (this.x < 4 || this.y < 4) {
+			createDialogue("Grid too small");
+			return false;
+		}
 		
 		if (this.Colors < 0) {
 			createDialogue("Color sets cannot be a negative number.");
