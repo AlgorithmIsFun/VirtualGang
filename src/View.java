@@ -42,6 +42,7 @@ public class View extends Application implements Observer {
 		this.model.addObserver(this);
 		this.grid = new Grid_Panel(this.model.getBox_Grid());
 		
+		
 		BorderPane window = new BorderPane();
 		window.setTop(this.header);
 		window.setCenter(this.grid);
@@ -59,6 +60,9 @@ public class View extends Application implements Observer {
         stage.setScene(scene);
         stage.setTitle("Color Sweeper");
         stage.show();
+        
+        // Puts Hintscreen on top of game screen
+        new HintScreen(this.model.getAllColorSets());
 	}
 	@Override
 	public void update(Observable o, Object arg) {

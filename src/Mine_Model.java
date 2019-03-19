@@ -248,4 +248,8 @@ public class Mine_Model extends Observable{
 		return this.flags;
 	}
 	
+	public ColorSet[] getAllColorSets() {
+		return this.allColorsSets;
+	}
+	
 }
