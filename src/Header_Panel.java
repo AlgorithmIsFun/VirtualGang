@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
  * Parent class: HBox
  * 
  */
-public class Header_Panel extends HBox implements Observer {
+public class Header_Panel extends HBox {
 	
 	public Smiley smiley;
 	
@@ -47,8 +47,8 @@ public class Header_Panel extends HBox implements Observer {
 		
 	}
 
-	@Override
-	public void update() {
+
+	public void updatePanel() {
 		// TODO Auto-generated method stub
 		this.flag_count_text.setText(String.valueOf(model.getFlagCount()));
 		if (model.getCurrentColorSet() != null) {

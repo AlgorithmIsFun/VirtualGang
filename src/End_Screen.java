@@ -13,31 +13,34 @@ import javafx.stage.Stage;
 public class End_Screen {
 	Mine_Model mineModel;
 	Start_Screen view;
-	public End_Screen() {
+	public End_Screen(String result, Stage game) {
 		Stage stage = new Stage();
-		initUI(stage);
+		initUI(stage,result,game);
 	}
 	
-	private void initUI(Stage stage) {
+	private void initUI(Stage stage, String result, Stage game) {
 		VBox root = new VBox();
 		root.setMinSize(550, 500);
 		root.setPadding(new Insets(50,0,0,45));
 		root.setId("background");
 		root.setSpacing(35);
 		
-		Text Title = new Text("Color Sweeper \n Game Over");
+		Text Title = new Text("Color Sweeper \n  "+result);
 		Title.setId("Title");
 		Title.setTranslateX(20);
 		
 	
 		Button Btn = MakeButton("Play Again");
 		Btn.setOnAction((event) -> {
-		this.view = new Start_Screen(stage);
+		new Start_Screen();
+		game.close();
+		stage.close();
 		});
 		
 		Button Btn2 = MakeButton("Exit");
 		Btn2.setOnAction((event) -> {
 		stage.close();
+		game.close();
 		});
 		
 		

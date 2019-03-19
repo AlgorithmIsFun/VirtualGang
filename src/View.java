@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import java.util.Observable;
+import java.util.Observer;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -7,7 +9,7 @@ import javafx.stage.Stage;
  * @author aliibrahim
  *
  */
-public class View extends Application {
+public class View extends Application implements Observer {
 	private Mine_Model model;
 	private Grid_Panel grid;
 	private Header_Panel header;
@@ -37,7 +39,7 @@ public class View extends Application {
 		
 		this.smiley = this.model.getSmiley();
 		this.header = new Header_Panel(this.smiley, this.model);
-		this.model.addObserver(this.header);
+		this.model.addObserver(this);
 		this.grid = new Grid_Panel(this.model.getBox_Grid());
 		
 		BorderPane window = new BorderPane();
@@ -58,4 +60,15 @@ public class View extends Application {
         stage.setTitle("Color Sweeper");
         stage.show();
 	}
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		if (model.enable) {
+			this.header.updatePanel();
+		}else if (model.enable == false) {
+			new End_Screen((String)arg,stage);
+		}
+		
+	}
+
 }

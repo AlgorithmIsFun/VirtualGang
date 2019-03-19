@@ -2,7 +2,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import javafx.scene.input.MouseEvent;
-
+import java.util.Observable;
+import java.util.Observer;
 /**
  * 
  * @author Abdullah Alexei
@@ -30,7 +31,6 @@ public class Mine_Model extends Observable{
 		//initializes all variables and map
 		flags = 0;
 		currColorset = null;
-		enable = true;
 		rand = new Random();
 	}
 	
@@ -40,10 +40,13 @@ public class Mine_Model extends Observable{
 		this.allColorsSets = generateColorsets(totalcolors);
 		this.totalColors = totalcolors;
 		this.smiley = new Smiley();
+		this.enable = true;
 		createGrid(width, height);
 		assignBombs(totalbombs);
 		assignNumbers();
 		this.flags = totalbombs;
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 	public void reveal(int x, int y) {
@@ -53,24 +56,27 @@ public class Mine_Model extends Observable{
 				this.unflag(x, y);
 			}
 			Box_Grid[x][y].reveal();
+			isWin();
 		}
 	}
 	
 	public void unflag(int x, int y) {
 		//reveals the box at x,y coordinates
-		if (!(Box_Grid[x][y].isRevealed())) {
+		if (!(Box_Grid[x][y].isRevealed()) && enable == true) {
 				Box_Grid[x][y].unflag();
 				this.flags = this.flags + 1;
+				this.setChanged();
 				this.notifyObservers();
 		}
 	}
 	
 	public void flag(int x, int y) {
 		//flags the box at x,y coordinates
-		if (!Box_Grid[x][y].isRevealed()) {
+		if (!Box_Grid[x][y].isRevealed() && enable == true) {
 			if (flags > 0) {
 				Box_Grid[x][y].flag();
 				this.flags = flags - 1;
+				this.setChanged();
 				this.notifyObservers();
 			}
 		}
@@ -86,8 +92,6 @@ public class Mine_Model extends Observable{
 			for (int j = 0; j < y; j++) {
 				Box_Grid[i][j] = new Whitespace(i,j);
 				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("WhiteSpace", this));
-				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_PRESSED, BoxStrategyFactory.create("WhiteSpace", this));
-				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_RELEASED, BoxStrategyFactory.create("WhiteSpace", this));
 			}
 		}
 	}
@@ -114,9 +118,8 @@ public class Mine_Model extends Observable{
 				y = rand.nextInt(Box_Grid[0].length);
 			}
 			Box_Grid[x][y] = new Bomb(x,y,this.allColorsSets[i % this.totalColors]);
+			this.allColorsSets[i % this.totalColors].addBomb((Bomb)Box_Grid[x][y]);
 			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Bomb", this));
-			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_PRESSED, BoxStrategyFactory.create("Bomb", this));
-			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_RELEASED, BoxStrategyFactory.create("Bomb", this));
 			this.All_Bombs[i] = Box_Grid[x][y];
 		}
 	}
@@ -135,20 +138,25 @@ public class Mine_Model extends Observable{
 				}
 			}
 		}
-		enable = false;
-		this.smiley.updateImage("Win");
-		return true;
-		
+		if (enable == true) {
+			enable = false;
+			this.smiley.updateImage("Win");
+			this.setChanged();
+			this.notifyObservers("Winner!");
+			return true;
+		}
+		return false;
 	}
 	
 	
 	public void revealAllBombs() {
-		int i;
 		this.smiley.updateImage("Game_Over");
 		enable = false;
-		for(i = 0; i < this.All_Bombs.length; i++) {
+		for(int i = 0; i < this.All_Bombs.length; i++) {
 			reveal(this.All_Bombs[i].getx(), this.All_Bombs[i].gety());
 		}
+		this.setChanged();
+		this.notifyObservers("Game Over!");
 	}
 	
 	public void revealRecursively(int x, int y) {
@@ -170,7 +178,8 @@ public class Mine_Model extends Observable{
 					reveal(x,y);
 				}
 			}
-		}		
+		}
+		isWin();
 	}
 	
 	
@@ -184,8 +193,6 @@ public class Mine_Model extends Observable{
 					if (countAdjacentBombs(i,j) > 0) {
 						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j), i, j,getAverageColor(i,j));
 						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Number", this));
-						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_PRESSED, BoxStrategyFactory.create("Number", this));
-						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_RELEASED, BoxStrategyFactory.create("Number", this));
 					}
 				}
 			}

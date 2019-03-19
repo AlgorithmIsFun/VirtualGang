@@ -10,7 +10,8 @@ import javafx.scene.text.Text;
 public class Start_Screen {
 		
 	//Initializes the GUI Elements
-	public Start_Screen(Stage stage) {
+	public Start_Screen() {
+		Stage stage = new Stage();
 		initUI(stage);
 	}
 	
@@ -93,7 +94,7 @@ public class Start_Screen {
 	public void setConfigurations(int x, int y, int Bomb, int Colors) {
 		Mine_Model model = new Mine_Model(); 
 		model.createAllBoxes(x,y,Bomb,Colors);
-		View view = new View(model);
+		new View(model);
 	}
 	
 }
