@@ -7,7 +7,7 @@ ColorSweeper is adapted from Minesweeper made by Curt Johnson from Microsoft.
 ColorSweeper is in the form of a .jar file. This format is able to be easily downloaded and played.
 Steps to Download and Install game through file managment:
 1. Install the Java runtime environment (if not already downloaded)
-2. Download Repository by going into this link: https://github.com/AlgorithmIsFun/VirtualGang
+2. Download Repository by going into this [link](https://github.com/AlgorithmIsFun/VirtualGang) and Click Download on the top right of the screen.
 3. Download Zip file into any directory you wish to save file
 4. Unzip the file using a decompressing software (ex: 7-zip)
 3. Double click on the jar file 
@@ -20,7 +20,9 @@ Steps to Download and Install game through Command Line:
 
 # Contributions
 Contributions were made by the VirtualGang team comprised with: Ritvik Bhardwaj, Alexei Blinov, Asmah Al-arryan, Abdullah Khan, Ali Ibrahim
-For some documentation, please check the resource documentation.txt
+A link to the contributions is here: [Contributions](https://github.com/AlgorithmIsFun/VirtualGang/settings/collaboration)
+
+For more documentation, please check the resource [documentation.txt](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/documentation.txt).
 
 # Licence
-ColorSweeper is licenced by Apache License. Please see LICENCE.md.txt file for more information.
+ColorSweeper is licenced by Apache License. Please see [LICENCE.md.txt](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/LICENCE.md.txt) file for more information.
