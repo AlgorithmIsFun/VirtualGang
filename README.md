@@ -2,6 +2,11 @@
 CSC290 Assigments
 ColorSweeper is a game written in Java and CSS.
 ColorSweeper is adapted from Minesweeper made by Curt Johnson from Microsoft.
+## Screenshots
+
+| ![Screen 1](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/ScreenShots/Capture.PNG) | ![Screen 2](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/ScreenShots/Custom.PNG) |
+|---------------------------------------------|---------------------------------------------|
+| ![Screen 3](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/ScreenShots/Game_Over.PNG) | ![Screen 4](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/ScreenShots/Start.PNG) |
 
 # Installation and Download
 ColorSweeper is in the form of a .jar file. This format is able to be easily downloaded and played.
