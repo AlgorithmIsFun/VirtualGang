@@ -75,7 +75,7 @@ public class Mine_Model extends Observable{
 		if (!Box_Grid[x][y].isRevealed() && enable == true) {
 			if (flags > 0) {
 				if (this.currColorset != null) {
-					if (!this.currColorset.equals(Box_Grid[x][y].getColorSet())) {
+					if (Box_Grid[x][y] instanceof Bomb && !this.currColorset.equals(Box_Grid[x][y].getColorSet())) {
 						revealAllBombs();
 						return;
 					}

@@ -24,7 +24,6 @@ public class BombStrategy extends BoxStrategy {
         }
 		else if(e.getButton() == MouseButton.SECONDARY) {
         	Box bomb = (Box) e.getSource();
-        	this.model.setCurrentColorSet(bomb.getx(), bomb.gety());
         	if (bomb.flagged) {
         		this.model.unflag(bomb.getx(), bomb.gety());
     		}
