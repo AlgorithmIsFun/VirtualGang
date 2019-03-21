@@ -4,7 +4,9 @@
 - [Game Description](https://github.com/AlgorithmIsFun/VirtualGang#game-description)
 - [Gameplay](https://github.com/AlgorithmIsFun/VirtualGang#screenshots)
 - [Installation](https://github.com/AlgorithmIsFun/VirtualGang#installation-and-download)
-- [Rules](https://github.com/AlgorithmIsFun/VirtualGang#rules)
+- [How to Play](https://github.com/AlgorithmIsFun/VirtualGang#how-to-play)
+- [Custom Configurations](https://github.com/AlgorithmIsFun/VirtualGang#configurations)
+- [License](https://github.com/AlgorithmIsFun/VirtualGang#license)
 
 
 
@@ -33,16 +35,22 @@ Steps to Download and Install game through Command Line:
 3. To access the jar file, use the command line java -jar <myjarfile.jar>
 
 Jar File
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/AlgorithmIsFun/VirtualGang/releases/tag/v1.0" data-icon="octicon-cloud-download" data-size="large" aria-label="Download Hublove/Sudoku-290 on GitHub">Download Zip File</a>
+<a class="github-button" href="https://github.com/AlgorithmIsFun/VirtualGang/releases/tag/v1.0" >Download Jar File</a>
 
-## Rules
+## How to Play
+When the game launches, the player is met with the Title screen. The player can then choose between 3 pre-defined game modes or customize their own. Next, the player can interact with the minefield. The minefield contains 3 types of boxes: Bombs, Numbers, and Whitespaces. The player can either choose to reveal or flag a certain box. However, the user cannot flag a different color bomb unless they have flagged all bombs of their current color. The player must reveal all non-bomb boxes to win the game.
+
+## Configurations
+1)The Board size must be at least 4x4
+2)The number of bombs must not exceed the total number of squares in the Board
+3) The number of colors must not exceed the total number of bombs
+4) Negative integers are not valid
+5) Non-integers are not valid
 
 # Contributions
-Contributions were made by the VirtualGang team comprised with: Ritvik Bhardwaj, Alexei Blinov, Asmah Al-arryan, Abdullah Khan, Ali Ibrahim
-A link to the contributions is here: [Contributions](https://github.com/AlgorithmIsFun/VirtualGang/settings/collaboration)
+Contributions were made by the VirtualGang team comprised with: Ritvik Bhardwaj (Aipiox Techson) , Alexei Blinov, Asmah Al-arryan, Abdullah Khan, Ali Ibrahim.
 
-For more documentation, please check the resource [documentation.txt](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/documentation.txt).
+For an indepth documentation on all of the classes in ColorSweeper, please check the resource [documentation.txt](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/documentation.txt).
 
 # Licence
 ColorSweeper is licenced by Apache License. Please see [LICENCE.md.txt](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/LICENCE.md.txt) file for more information.
