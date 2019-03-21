@@ -74,8 +74,21 @@ public class Mine_Model extends Observable{
 		//flags the box at x,y coordinates
 		if (!Box_Grid[x][y].isRevealed() && enable == true) {
 			if (flags > 0) {
+				if (this.currColorset != null) {
+					if (!this.currColorset.equals(Box_Grid[x][y].getColorSet())) {
+						revealAllBombs();
+						return;
+					}
+				}else {
+					if (Box_Grid[x][y] instanceof Bomb) {
+						this.currColorset = Box_Grid[x][y].getColorSet();
+					}
+				}
 				Box_Grid[x][y].flag();
 				this.flags = flags - 1;
+				if (this.currColorset != null && this.currColorset.isFilled()) {
+					this.currColorset = null;
+				}
 				this.setChanged();
 				this.notifyObservers();
 			}
