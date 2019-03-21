@@ -61,8 +61,6 @@ public class View extends Application implements Observer {
         stage.setTitle("Color Sweeper");
         stage.show();
         
-        // Puts Hintscreen on top of game screen
-        new HintScreen(this.model.getAllColorSets());
 	}
 	@Override
 	public void update(Observable o, Object arg) {

@@ -94,6 +94,8 @@ public class Mine_Model extends Observable{
 			for (int j = 0; j < y; j++) {
 				Box_Grid[i][j] = new Whitespace(i,j);
 				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("WhiteSpace", this));
+				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_PRESSED, BoxStrategyFactory.create("WhiteSpace", this));
+				Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_RELEASED, BoxStrategyFactory.create("WhiteSpace", this));
 			}
 		}
 	}
@@ -122,6 +124,8 @@ public class Mine_Model extends Observable{
 			Box_Grid[x][y] = new Bomb(x,y,this.allColorsSets[i % this.totalColors]);
 			this.allColorsSets[i % this.totalColors].addBomb((Bomb)Box_Grid[x][y]);
 			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Bomb", this));
+			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_PRESSED, BoxStrategyFactory.create("Bomb", this));
+			Box_Grid[x][y].addEventHandler(MouseEvent.MOUSE_RELEASED, BoxStrategyFactory.create("Bomb", this));
 			this.All_Bombs[i] = Box_Grid[x][y];
 		}
 	}
@@ -195,6 +199,8 @@ public class Mine_Model extends Observable{
 					if (countAdjacentBombs(i,j) > 0) {
 						Box_Grid[i][j] = new Number(countAdjacentBombs(i,j), i, j,getAverageColor(i,j));
 						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, BoxStrategyFactory.create("Number", this));
+						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_PRESSED, BoxStrategyFactory.create("Number", this));
+						Box_Grid[i][j].addEventHandler(MouseEvent.MOUSE_RELEASED, BoxStrategyFactory.create("Number", this));
 					}
 				}
 			}
