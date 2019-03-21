@@ -71,6 +71,7 @@ public class Mine_Model extends Observable{
 		//flags the box at x,y coordinates
 		if (!Box_Grid[x][y].isRevealed() && enable == true) {
 			if (flags > 0) {
+				System.out.println("Hello!");
 				if (this.currColorset != null) {
 					if (Box_Grid[x][y] instanceof Bomb && !this.currColorset.equals(Box_Grid[x][y].getColorSet())) {
 						revealAllBombs();

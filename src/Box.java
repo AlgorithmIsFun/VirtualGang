@@ -18,6 +18,7 @@ public abstract class Box extends Button {
 	public int gety() {return this.y;};
 	public boolean isRevealed() {return (this.isDisabled());} 
 	public ColorSet getColorSet() {return this.colorset;}
+	public boolean isFlagged() {return (this.flagged);}
 	public abstract void reveal();
 	public abstract void flag();
 	public abstract void unflag();

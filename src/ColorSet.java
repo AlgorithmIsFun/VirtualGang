@@ -56,7 +56,7 @@ public class ColorSet {
 	
 	public boolean isFilled() {
 		for (Bomb b:this.bombs) {
-			if (!b.isRevealed()) {
+			if (!b.isFlagged()) {
 				return false;
 			}
 		}
