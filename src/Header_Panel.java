@@ -1,12 +1,8 @@
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 
 /**
@@ -34,6 +30,7 @@ public class Header_Panel extends HBox {
 		this.smiley = smiley;
 		this.model = model;
 		
+		// Create the Flag Count Box to show the number of flags left to use
 		flag_count_box = new Rectangle(60, 60);
 		flag_count_box.setFill(Color.BLACK);
 		flag_count_text = new Label(String.valueOf(model.getFlagCount()));
@@ -41,6 +38,7 @@ public class Header_Panel extends HBox {
 		flag_count_stack = new StackPane();
 		flag_count_stack.getChildren().addAll(flag_count_box, flag_count_text);
 		
+		// Displays the current Color Set
 		bomb_color_box = new Button();
 		bomb_color_box.setMaxSize(60, 60);
 		bomb_color_box.setMinSize(60, 60);

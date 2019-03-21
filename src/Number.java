@@ -1,6 +1,12 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
+/**
+ * 
+ * @author Alexei
+ * 
+ * A Number Box which is a subclass of Box. The Number Box displays the number of Adjacent Bombs.
+ *
+ */
 
 public class Number extends Box {
 

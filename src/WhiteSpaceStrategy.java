@@ -5,6 +5,8 @@ import javafx.scene.input.MouseEvent;
  * 
  * @author Abdullah
  *
+ *	The Strategy for the Whitespace Box. Handles Mouse Button events.  
+ *
  */
 
 public class WhiteSpaceStrategy extends BoxStrategy {

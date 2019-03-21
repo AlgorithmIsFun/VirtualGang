@@ -1,9 +1,6 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 import javafx.scene.input.MouseEvent;
 import java.util.Observable;
-import java.util.Observer;
 /**
  * 
  * @author Abdullah Alexei

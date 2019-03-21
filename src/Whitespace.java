@@ -1,6 +1,13 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * 
+ * @author Alexei
+ *
+ * The Whitespace Box which is a subclass of Box. Displays nothing when revealed.
+ *
+ */
 public class Whitespace extends Box {
 	
 	private Image image;

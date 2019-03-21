@@ -5,6 +5,8 @@ import javafx.scene.input.MouseEvent;
  * 
  * @author Abdullah Alexei
  *
+ * The Strategy for Number Box.
+ *
  */
 public class NumberStrategy extends BoxStrategy {
 	
