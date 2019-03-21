@@ -54,6 +54,7 @@ public class ColorSet {
 		return bombs;
 	}
 	
+	
 	public boolean isFilled() {
 		for (Bomb b:this.bombs) {
 			if (!b.isRevealed()) {

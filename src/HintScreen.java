@@ -1,52 +1,81 @@
+import javafx.geometry.Orientation;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- * 
- * @author Alexei
- * 
- * A hint screen showing all the bomb colors (Color sets). 
- *
- */
 public class HintScreen {
-	
-	ColorSet allColors[];
-	
+
+	ColorSet[] allColorSets;
+	Stage currStage;
 	public HintScreen(ColorSet[] colors) {
-		 this.allColors = colors;
-		 Stage stage = new Stage();
-		 initUI(stage);
+		this.currStage = new Stage();
+		this.allColorSets = colors;
+		initUI(this.currStage);
 	}
 	
-	public void initUI(Stage stage) {
-		VBox root = new VBox();
-		root.setMinWidth(340);
-		Label label = new Label("Color Sets with Bomb Count");
-		root.getChildren().add(label);
-		Rectangle colorBox;
-		StackPane colorBoxStack;
-		Label bombCount;
-		for(int i = 0; i < allColors.length; i++) {
-			colorBox = new Rectangle(60,60);
-			colorBox.setFill(Color.rgb(allColors[i].getR(), allColors[i].getG(), allColors[i].getB()));
-			colorBoxStack = new StackPane();
-			bombCount = new Label(String.valueOf(allColors[i].getBombs().size()));
-			colorBoxStack.getChildren().addAll(colorBox, bombCount);
-			root.getChildren().add(colorBoxStack);
-		}
-		ScrollPane colorScroller = new ScrollPane();
-		colorScroller.setContent(root);
-		colorScroller.setMinWidth(340);
-		Scene scene = new Scene(colorScroller);
+	void initUI(Stage stage) {
+		//Create the background
+		
+		
+		//Create the Title
+		Text Title = new Text("Cheat Sheet");
+		Title.setTranslateX(20);
+		Title.setFill(Color.WHITE);
+		
+		GridPane grid = new GridPane();
+		grid.setId("background");
+		grid.setVgap(30);
+		grid.setMaxSize(200, 200);
+		
+	     grid.add(Title,0,0);
+	     for (int i = 0; i < this.allColorSets.length; i++) {
+	    	 HBox Root = new HBox();
+	    	 Root.setMinSize(200,50);
+	    	 Root.setMaxSize(200, 50);
+	    	 Root.setSpacing(50);
+	    	 Root.setTranslateX(5);
+	 
+	    	 
+	    	 Rectangle Color = new Rectangle(90,50);
+	    	 Color.setStyle("-fx-fill:" + this.allColorSets[i].getHex()+";");
+	    	 
+	    	 
+	    	 Label amount = new Label(String.valueOf(this.allColorSets[i].getBombs().size()));
+	    	 amount.setMinSize(100, 50);
+	    	 amount.setStyle("-fx-text-fill: #FFFFFF;");
+	    	 
+	    	 Root.getChildren().addAll(Color,amount);
+	    	 grid.add(Root,0,i+1);
+	     }
+	     
+	     ScrollPane scrollPane = new ScrollPane(grid);
+	     scrollPane.setId("background");
+	     scrollPane.setMinSize(200, 200);
+	     scrollPane.setMaxSize(200, 200);
+	     
+		//Adding the Buttons to the GUI and Showing the GUI
+		Scene scene = new Scene(scrollPane);
+		scene.getStylesheets().add("StartScreen.css");
 		stage.setScene(scene);
-		stage.setTitle("Color Hint Screen");
+		stage.setTitle("ColorSweeper");
+		stage.setResizable(false);
 		stage.show();
+		
+	}
+	public void closeScreen() {
+		this.currStage.close();
 	}
 
 }

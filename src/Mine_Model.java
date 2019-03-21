@@ -81,7 +81,9 @@ public class Mine_Model extends Observable{
 			}
 		}
 	}
-	
+	public ColorSet[] getAllColorSet() {
+		return this.allColorsSets;
+	}
 	public Box[][] getBox_Grid() {
 		return this.Box_Grid;
 	}

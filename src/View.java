@@ -70,6 +70,7 @@ public class View extends Application implements Observer {
 		if (model.enable) {
 			this.header.updatePanel();
 		}else if (model.enable == false) {
+			this.header.removeHint();
 			new End_Screen((String)arg,stage);
 		}
 		
