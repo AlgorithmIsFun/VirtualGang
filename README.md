@@ -50,7 +50,7 @@ When the game launches, the player is met with the Title screen. The player can 
 # Contributions
 Contributions were made by the VirtualGang team comprised with: Ritvik Bhardwaj (Aipiox Techson) , Alexei Blinov, Asmah Al-arryan, Abdullah Khan, Ali Ibrahim.
 
-For an indepth documentation on all of the classes in ColorSweeper, please check the resource [documentation.txt](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/documentation.txt).
+For an indepth documentation on all of the classes in ColorSweeper, please check the resource [documentation.txt](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/Documentation.pdf).
 
 # Licence
 ColorSweeper is licenced by Apache License. Please see [LICENCE.md.txt](https://github.com/AlgorithmIsFun/VirtualGang/blob/master/LICENCE.md.txt) file for more information.
